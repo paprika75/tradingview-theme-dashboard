@@ -14,7 +14,7 @@ Market Health → Institutional Focus → Theme Translation → New Entry Opport
 **数値、順位、Leader、Stage、Setup、AI解釈、保有例、過去の判断文章はすべてMock。実際の市場評価・事前予測ではない。**
 
 既存TradingViewカタログのテーマ名・構成銘柄を維持。Energy / Oil Services / Gold Miners / Utilities等は、TV未登録のMock拡張例と明示。
-Daily 10評価日、Weekly 8評価週。祝日カレンダーは未接続。AI例は`kind: retrospective-mock-fixture`と実際の生成時刻を保存し、過去の事前予測と区別する。
+Daily 10評価日、Weekly 8評価週。祝日カレンダーは未接続。AI例は`kind: retrospective-mock-fixture`とMock生成例の時刻を保存し、過去の事前予測と区別する。
 
 ## 構成
 
@@ -23,7 +23,8 @@ app.js                    ページ・URL・端末内監視状態
 lib/data.mjs              読込・時点結合・失敗表示
 lib/logic.mjs             定量判定
 lib/views.mjs             共通データを描画
-config/scoring.json       ウェイト・閾値・版番号
+config/scoring.json       最新ウェイト・閾値・版番号
+config/versions/          過去評価時点の設定（不変）
 data/latest.json          Mock / Liveルーター
 data/mock/latest.json     履歴マニフェスト
 data/mock/daily/           日次評価・quantitative / scores
@@ -76,3 +77,9 @@ Pages SourceはGitHub Actions。`main`へのpush・手動実行でテスト→�
 
 GitHub Pages単体では秘密キーを使うデータ取得やAI生成を実行しない。取得/生成は将来のActions等へ分離する。現時点のActionsは配信のみで、データ自動更新は未接続。
 PC1280–1440px基準。横幅の多いテーブルは独立スクロール。スマホ専用UIは未実装。
+
+## PC公開画面の検証
+
+2026-10-02 JST、GitHub Pages上でUS / Japan、Daily / Weekly、過去日付、検索・0件、Entryフィルタ、並び替え、監視テーマの端末内保存と解除、テーマ詳細、TradingViewリンク先、候補ダイアログ、最大4テーマの折れ線、AI判断履歴、評価設定を確認。1280px / 1440pxの実際のiframe内で、ページ全体・主要グリッド・カードに意図しない横はみ出しがないことを確認。多列テーブルは独立スクロール。検証ページは`qa.html`。
+
+配信時にCSSとES modulesの依存を内容ハッシュでバージョン付けし、古いキャッシュが混在しにくい構成にした。過去評価は保存された設定版を使い、現在の設定変更で判定を再計算しない。

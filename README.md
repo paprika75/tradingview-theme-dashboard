@@ -1,69 +1,78 @@
-# Theme Atlas — TradingViewテーマ分析 PCプロトタイプ
+# Theme Atlas — TradingViewテーマ分析ダッシュボード
 
-GitHub Pages向け、ビルド不要・外部ライブラリ不要の静的ダッシュボード。
+PC優先の静的Webアプリ。公開URL: https://paprika75.github.io/tradingview-theme-dashboard/
 
-## 単体プレビュー
+## 実装した判断フロー
 
-`python3 scripts/build_preview.py`でCSS・スクリプト・デモデータを埋め込んだ単体HTML `preview.html` を生成できる。ブラウザで直接開ける。PC向けでスマホ対応は未実装。
+Market Health → Institutional Focus → Theme Translation → New Entry Opportunities / Active Theme Health → Theme Landscape → Theme Rotation。
 
-## 起動
-
-```bash
-cd theme-dashboard
-python3 -m http.server 4173 --bind 0.0.0.0
-```
-
-ブラウザで http://localhost:4173 を開く。`file://`で開くとJSONのfetchが動かないためHTTPで起動する。
-
-## 実装済み
-
-- 日米のテーマを独立表示。実際のテーマ名と構成銘柄を引継ぎ。
-- Overview: Daily / Weekly、検索、Strong / 強化フィルタ、並び替え、過去日付選択。
-- Theme Detail: 日次・週次スコア、提案重みの内訳、構成銘柄、Leader、TradingViewリンク。
-- History: 最大4テーマの順位推移比較、保存した評価を再表示。
-- 新規テーマ候補の詳細ダイアログ。
-- About: 既存ロジック、提案事項、データの扱いと未接続部分。
-- 相対パス、静的な4ページ、クエリによる市場・期間・日付の復元。
+ダークUI、US / Japan、Daily / Weekly、過去評価日切替、検索・フィルタ・並び替え、テーマ詳細、Leader Top 5、VCP / CWH / Base Breakout / Pullback・Retest、TradingViewリンク、順位Heatmap、選択テーマのみの折れ線、Market Driver History、新規テーマ候補を実装。
+保有監視の選択は市場別のlocalStorageに保存。公開データにユーザーのポジションを含めない。
 
 ## データの状態
 
-テーマ名・構成銘柄のみ実際のTradingViewテーマウォッチリストから取得。
-**評価数値、順位、Leader、Stage、Setup、候補、履歴はすべて架空のデモ。投資判断用の実評価ではない。**
-デモアーカイブはDaily 10日、Weekly 8週。生成時の営業日は平日の例で、取引所祝日は未接続。
+**数値、順位、Leader、Stage、Setup、AI解釈、保有例、過去の判断文章はすべてMock。実際の市場評価・事前予測ではない。**
 
-過去の会話のv1は定性的な総合順位で固定スコア未実装。提案重み:
-Daily Momentum40 / Breadth30 / Participation15 / Leader15。
-Weekly Relative Strength35 / Trend Breadth30 / Trend Quality20 / Actionability15。
-本プロトタイプはデモの0–100入力にその重みを適用。実指標正規化、欠損値、基準指数、Leader選定、最低構成数は本番実装前に確定が必要。
+既存TradingViewカタログのテーマ名・構成銘柄を維持。Energy / Oil Services / Gold Miners / Utilities等は、TV未登録のMock拡張例と明示。
+Daily 10評価日、Weekly 8評価週。祝日カレンダーは未接続。AI例は`kind: retrospective-mock-fixture`と実際の生成時刻を保存し、過去の事前予測と区別する。
 
-## ファイル
+## 構成
 
-- index.html / theme.html / history.html / about.html
-- app.js / styles.css
-- data/theme-catalog.json — テーマ構成の取得時点のカタログ
-- data/latest.json — 履歴マニフェストと最新キー
-- data/daily/YYYY-MM-DD.json / data/weekly/YYYY-W##.json — immutable評価スナップショット
-- data/candidates.json — 新規候補の表示例
-- scripts/build_demo.py — 再現可能なデモ生成。scripts/watchlist-source.jsonを利用。
-- tests/validate_data.py — スナップショット整合性検証（開発用）
+```text
+app.js                    ページ・URL・端末内監視状態
+lib/data.mjs              読込・時点結合・失敗表示
+lib/logic.mjs             定量判定
+lib/views.mjs             共通データを描画
+config/scoring.json       ウェイト・閾値・版番号
+data/latest.json          Mock / Liveルーター
+data/mock/latest.json     履歴マニフェスト
+data/mock/daily/           日次評価・quantitative / scores
+data/mock/weekly/          週次評価・quantitative / scores
+data/raw/mock/            合成Raw観測
+data/analysis/mock/       独立した日付付きAI例・confidence
+```
 
-## GitHub Pages公開
+旧`data/daily/`・`data/weekly/`は変更せず、`data/legacy-manifest.json`から参照可能。新UIはv2を使用する。
+定量スコアにAIのMacro / Institutional Alignmentを直接加算しない。AI材料は別表示して文脈判断を検証できる構造。
 
-このフォルダの内容を公開用リポジトリのルートへ配置する。
-GitHub Settings → Pages → Source: GitHub Actionsを選択し、含めた`.github/workflows/pages.yml`を利用。
-`main`へのpushまたは手動実行で静的ファイルを配信。Actionsの対象はpublicのみをステージし、テストや元データを配信しない。
-GitHub Pagesで公開済み: https://paprika75.github.io/tradingview-theme-dashboard/
+## 初期評価ロジック
 
-## 検証状況
+- Market Health: Trend30 / Institutional Action20 / Breadth20 / Leadership20 / Breakout Quality10。
+- Daily / Weekly: 既存の提案重みを維持。全構成を詳細表示。
+- Leader: RS30 / Trend20 / Structure15 / Liquidity10 / Accumulation10 / Breakout10 / Fundamental5。
+- Opportunity: Weekly25 / Daily Acceleration20 / Breadth15 / Leader15 / Ready Setup15 / Market Health10。Dailyデータ・Weekly強度・市場環境・Ready Setup・非Extendedをゲート判定。
+- Active Health: 3–5営業日の短期変化と3週間の中期変化を分離。短期悪化だけならWATCH。中期スコア低下＋200DMA維持率低下を加えてDETERIORATING。
 
-`python3 tests/validate_data.py`と`node tests/logic.cjs`が成功。順位・スコア・前回差分・構成銘柄、検索、フィルタ、履歴の時点制約、詳細ページ、単体バンドルをコード側で検証。2026年10月2日、公開したGitHub Pages上でPC画面をブラウザ検証済み。Daily / Weekly切替、日米切替、検索・検索0件、Strongフィルタ、候補ダイアログ、過去日付、テーマ詳細、日次10日・週次8週の履歴、最大4テーマ比較、保存評価の再表示、Aboutを確認。画面レイアウトも確認済み。数値は引き続きデモ。
+Market Healthカテゴリ値やRS・Stageの本番用正規化/検出は未実装。上記は検証前の初期設計。閾値とウェイトは設定ファイルで変更可能。1桁スコアの丸めはhalf-upで統一し、欠損入力は点数を—にする。
 
-## 次の実装
+## 時点・更新状態
 
-1. 実評価の計算・正規化を確定。
-2. 市場別に確定終値と欠損値を管理した評価結果をJSON出力。
-3. 最新マニフェストを更新し、過去の評価ファイルを保持。
-4. スマホ向けのカード表示・ナビゲーションへ対応。
+URL例: `?market=us&period=daily&date=2026-10-01`、`theme.html?id=us-6&market=us&period=daily&date=2026-10-01`。従来の大文字US / JPにも対応。
+選択日以前のDaily / Weekly・AIファイルを使い、未来の評価を混ぜない。ランキング差分は保存済みの前回評価から計算。履歴ファイルを読み込めない場合はHeatmapの—と折れ線の切断で表現。
+MockはMOCK DATA、過去はARCHIVE。評価の読込失敗で過去データを使うとSTALE DATAと理由・最終成功日を表示。Live更新予定を超過した場合もSTALE。IBD Referenceは未取得、Exposure・DIVERGENCEは未判定。
 
-PC優先: 最小幅1180px。スマホ用の表示切替は未実装。
-認証トークン、TradingView Cookie、個人のポジション・Entry / Stop情報は含めない。
+## 起動・検証
+
+```bash
+python -m http.server 8000
+node --test tests/v2.test.mjs
+python tests/validate_data.py
+```
+
+http://localhost:8000 を開く。ES modulesとJSONのfetchを使用するためHTTPで配信する。
+`node tests/logic.cjs`もv2テストへ転送。Pythonテストは旧アーカイブの不変性・整合性を検証する。
+`python scripts/build_v2_mock.py`は同一内容なら再現可能。既存評価やAIファイルを異なる内容で上書きしようとすると停止する。公開後の変更は新しい版/履歴として追加する。旧v1生成・単体プレビューのスクリプトは誤使用を防ぐ案内を表示する。
+
+## GitHub Pages
+
+Pages SourceはGitHub Actions。`main`へのpush・手動実行でテスト→静的配信。依存ライブラリ・バックエンド・APIキーは不要。HTML / CSS / JS / lib / config / dataのみ配信する。
+
+## 次の段階・制約
+
+1. 実OHLCVとBreadth取得元、市場別確定時刻・祝日・欠損値処理を決める。
+2. RS / Stage / Setup / Distribution / Breakout等の実数計算と検証を追加する。
+3. ニュース・イベント・決算の出典付きAI生成をActions側で行い、日付付きファイルを追記する。秘密情報はGitHub Secretsで管理し、静的ページへ渡さない。
+4. 同一データ処理を使うスマホ用テーマカード・ナビゲーションを追加する。
+
+GitHub Pages単体では秘密キーを使うデータ取得やAI生成を実行しない。取得/生成は将来のActions等へ分離する。現時点のActionsは配信のみで、データ自動更新は未接続。
+PC1280–1440px基準。横幅の多いテーブルは独立スクロール。スマホ専用UIは未実装。

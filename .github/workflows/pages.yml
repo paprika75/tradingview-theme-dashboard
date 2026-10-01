@@ -18,12 +18,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate data and decision logic
+        run: |
+          node --test tests/v2.test.mjs
+          python tests/validate_data.py
       - uses: actions/configure-pages@v5
       - name: Stage static files
         run: |
           mkdir public
           cp index.html theme.html history.html about.html app.js styles.css public/
-          cp -r data public/
+          cp -r data lib config public/
           touch public/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:

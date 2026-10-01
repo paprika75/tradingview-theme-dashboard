@@ -3,7 +3,7 @@ from pathlib import Path
 root=Path(__file__).resolve().parents[1]
 class Snapshots(unittest.TestCase):
  def test_archive_integrity(self):
-  manifest=json.loads((root/'data/latest.json').read_text())
+  manifest=json.loads((root/'data/legacy-manifest.json').read_text())
   for period,weights in [('daily',[.4,.3,.15,.15]),('weekly',[.35,.3,.2,.15])]:
    previous=None
    for entry in manifest[period]:

@@ -1,3 +1,4 @@
+raise SystemExit("V1 fixture generator is archived. Use scripts/build_v2_mock.py for v2; committed archives are immutable.")
 """Reproducible fixtures only. No market analysis is performed here."""
 import json, math
 from pathlib import Path

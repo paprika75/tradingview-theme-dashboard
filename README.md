@@ -4,7 +4,7 @@ GitHub Pages向け、ビルド不要・外部ライブラリ不要の静的ダ�
 
 ## 単体プレビュー
 
-`preview.html`はCSS・スクリプト・デモデータを埋め込んだ単体HTML。ダウンロードしてブラウザで直接開ける。PC向けでスマホ対応は未実装。
+`python3 scripts/build_preview.py`でCSS・スクリプト・デモデータを埋め込んだ単体HTML `preview.html` を生成できる。ブラウザで直接開ける。PC向けでスマホ対応は未実装。
 
 ## 起動
 
@@ -52,11 +52,11 @@ Weekly Relative Strength35 / Trend Breadth30 / Trend Quality20 / Actionability15
 このフォルダの内容を公開用リポジトリのルートへ配置する。
 GitHub Settings → Pages → Source: GitHub Actionsを選択し、含めた`.github/workflows/pages.yml`を利用。
 `main`へのpushまたは手動実行で静的ファイルを配信。Actionsの対象はpublicのみをステージし、テストや元データを配信しない。
-本ターンではGitHubへのpush・公開は行っていない。
+GitHub Pagesで公開済み: https://paprika75.github.io/tradingview-theme-dashboard/
 
 ## 検証状況
 
-`python3 tests/validate_data.py`と`node tests/logic.cjs`が成功。順位・スコア・前回差分・構成銘柄、検索、フィルタ、履歴の時点制約、詳細ページ、単体バンドルをコード側で検証。ブラウザのローカルURL制限により、この環境での実表示・操作とレイアウトの確認は未完了。
+`python3 tests/validate_data.py`と`node tests/logic.cjs`が成功。順位・スコア・前回差分・構成銘柄、検索、フィルタ、履歴の時点制約、詳細ページ、単体バンドルをコード側で検証。2026年10月2日、公開したGitHub Pages上でPC画面をブラウザ検証済み。Daily / Weekly切替、日米切替、検索・検索0件、Strongフィルタ、候補ダイアログ、過去日付、テーマ詳細、日次10日・週次8週の履歴、最大4テーマ比較、保存評価の再表示、Aboutを確認。画面レイアウトも確認済み。数値は引き続きデモ。
 
 ## 次の実装
 

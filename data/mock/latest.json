@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 2,
+  "mode": "mock",
+  "generatedAt": "2026-10-02T04:40:26+09:00",
+  "daily": [
+    {
+      "key": "2026-09-18",
+      "asOf": "2026-09-18",
+      "path": "mock/daily/2026-09-18.json",
+      "rawPath": "raw/mock/2026-09-18.json",
+      "analysisPath": "analysis/mock/2026-09-18.json"
+    },
+    {
+      "key": "2026-09-21",
+      "asOf": "2026-09-21",
+      "path": "mock/daily/2026-09-21.json",
+      "rawPath": "raw/mock/2026-09-21.json",
+      "analysisPath": "analysis/mock/2026-09-21.json"
+    },
+    {
+      "key": "2026-09-22",
+      "asOf": "2026-09-22",
+      "path": "mock/daily/2026-09-22.json",
+      "rawPath": "raw/mock/2026-09-22.json",
+      "analysisPath": "analysis/mock/2026-09-22.json"
+    },
+    {
+      "key": "2026-09-23",
+      "asOf": "2026-09-23",
+      "path": "mock/daily/2026-09-23.json",
+      "rawPath": "raw/mock/2026-09-23.json",
+      "analysisPath": "analysis/mock/2026-09-23.json"
+    },
+    {
+      "key": "2026-09-24",
+      "asOf": "2026-09-24",
+      "path": "mock/daily/2026-09-24.json",
+      "rawPath": "raw/mock/2026-09-24.json",
+      "analysisPath": "analysis/mock/2026-09-24.json"
+    },
+    {
+      "key": "2026-09-25",
+      "asOf": "2026-09-25",
+      "path": "mock/daily/2026-09-25.json",
+      "rawPath": "raw/mock/2026-09-25.json",
+      "analysisPath": "analysis/mock/2026-09-25.json"
+    },
+    {
+      "key": "2026-09-28",
+      "asOf": "2026-09-28",
+      "path": "mock/daily/2026-09-28.json",
+      "rawPath": "raw/mock/2026-09-28.json",
+      "analysisPath": "analysis/mock/2026-09-28.json"
+    },
+    {
+      "key": "2026-09-29",
+      "asOf": "2026-09-29",
+      "path": "mock/daily/2026-09-29.json",
+      "rawPath": "raw/mock/2026-09-29.json",
+      "analysisPath": "analysis/mock/2026-09-29.json"
+    },
+    {
+      "key": "2026-09-30",
+      "asOf": "2026-09-30",
+      "path": "mock/daily/2026-09-30.json",
+      "rawPath": "raw/mock/2026-09-30.json",
+      "analysisPath": "analysis/mock/2026-09-30.json"
+    },
+    {
+      "key": "2026-10-01",
+      "asOf": "2026-10-01",
+      "path": "mock/daily/2026-10-01.json",
+      "rawPath": "raw/mock/2026-10-01.json",
+      "analysisPath": "analysis/mock/2026-10-01.json"
+    }
+  ],
+  "weekly": [
+    {
+      "key": "2026-W32",
+      "asOf": "2026-08-07",
+      "path": "mock/weekly/2026-W32.json",
+      "rawPath": "raw/mock/2026-08-07.json",
+      "analysisPath": "analysis/mock/2026-08-07.json"
+    },
+    {
+      "key": "2026-W33",
+      "asOf": "2026-08-14",
+      "path": "mock/weekly/2026-W33.json",
+      "rawPath": "raw/mock/2026-08-14.json",
+      "analysisPath": "analysis/mock/2026-08-14.json"
+    },
+    {
+      "key": "2026-W34",
+      "asOf": "2026-08-21",
+      "path": "mock/weekly/2026-W34.json",
+      "rawPath": "raw/mock/2026-08-21.json",
+      "analysisPath": "analysis/mock/2026-08-21.json"
+    },
+    {
+      "key": "2026-W35",
+      "asOf": "2026-08-28",
+      "path": "mock/weekly/2026-W35.json",
+      "rawPath": "raw/mock/2026-08-28.json",
+      "analysisPath": "analysis/mock/2026-08-28.json"
+    },
+    {
+      "key": "2026-W36",
+      "asOf": "2026-09-04",
+      "path": "mock/weekly/2026-W36.json",
+      "rawPath": "raw/mock/2026-09-04.json",
+      "analysisPath": "analysis/mock/2026-09-04.json"
+    },
+    {
+      "key": "2026-W37",
+      "asOf": "2026-09-11",
+      "path": "mock/weekly/2026-W37.json",
+      "rawPath": "raw/mock/2026-09-11.json",
+      "analysisPath": "analysis/mock/2026-09-11.json"
+    },
+    {
+      "key": "2026-W38",
+      "asOf": "2026-09-18",
+      "path": "mock/weekly/2026-W38.json",
+      "rawPath": "raw/mock/2026-09-18.json",
+      "analysisPath": "analysis/mock/2026-09-18.json"
+    },
+    {
+      "key": "2026-W39",
+      "asOf": "2026-09-25",
+      "path": "mock/weekly/2026-W39.json",
+      "rawPath": "raw/mock/2026-09-25.json",
+      "analysisPath": "analysis/mock/2026-09-25.json"
+    }
+  ],
+  "description": "Mock values and retrospective AI examples only. No real past predictions.",
+  "lastSuccessfulUpdate": "2026-10-02T04:40:26+09:00",
+  "expectedNextUpdate": null
+}

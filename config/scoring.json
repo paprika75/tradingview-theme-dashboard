@@ -1,0 +1,10 @@
+{
+  "version":"2.0.0-prototype",
+  "marketHealth":{"trend":0.30,"institutionalAction":0.20,"breadth":0.20,"leadership":0.20,"breakoutQuality":0.10},
+  "daily":{"momentum":0.40,"breadth":0.30,"participation":0.15,"leaderQuality":0.15},
+  "weekly":{"relativeStrength":0.35,"trendBreadth":0.30,"trendQuality":0.20,"actionability":0.15},
+  "leader":{"rs":0.30,"trend":0.20,"structure":0.15,"liquidity":0.10,"accumulation":0.10,"breakoutQuality":0.10,"fundamentalGrowth":0.05},
+  "opportunity":{"weeklyStrength":0.25,"dailyAcceleration":0.20,"breadth":0.15,"leaderQuality":0.15,"setupAvailability":0.15,"marketHealth":0.10},
+  "thresholds":{"marketHealthy":70,"marketWatch":50,"strongTheme":80,"emergingDaily":75,"minimumWeekly":60,"extendedPct":10,"activeShortScoreDrop":8,"activeBreadthDrop":10,"activeMediumScoreDrop":12,"failedBreakoutRate":0.40},
+  "note":"初期ルール。Macro/Institutional alignmentはAI由来として総合定量点に加算せず別表示。重み変更時はversion更新、新しい評価のみ計算する。過去スナップショットを再計算しない。"
+}

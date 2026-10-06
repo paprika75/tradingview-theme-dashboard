@@ -2,6 +2,21 @@
 
 実装・検証・仕様変更の履歴を時系列で記録する。
 
+## 2026-10-07 — Setup Type / Post-Breakout Lifecycle分離
+
+Setupのチャート型とブレイク後の現在状態を別軸へ変更。
+
+- `setup_type`: 起点のチャート型。現行採用は VCP / CWH / Base Breakout。ブレイク後も保持。
+- `lifecycle`: `SETUP / BREAKOUT / EXTENDED / PULLBACK / RETEST / 3WT / TIGHT / ASCENDING_BASE / FAILED_BREAKOUT`。
+- OverviewのSetup表をSetup Type / Lifecycle分離表示へ変更し、Lifecycle filterを追加。
+- Legacy snapshotは遡及上書きせず、元setup_typeを復元できない場合は未判定表示。
+- `🇺🇸セットアップ` / `🇯🇵セットアップ` はsetup_type軸を維持。
+- `❤️ブレイクアウト` / `💙ブレイクアウト` はlifecycle軸へ再構成。
+- 既存のBreakout銘柄は推測で再分類せず、従来状態を保持してBREAKOUT区分へ移行。
+- Issue #6をPost-Breakout Lifecycle統合まで含む内容へ更新。
+
+現時点では新規Observed snapshotへの `setup_type` / `lifecycle` 永続化と、Breakout後Lifecycleの自動候補判定は未実装。Issue #6で継続する。
+
 ## 2026-10-07 — README / docs再編
 
 - READMEを概要・起動・主要構成・参照先に絞る方針へ変更。

@@ -23,6 +23,8 @@ Theme Leaders
   ↓
 Pre-Setup / Setups
   ↓
+Post-Breakout Lifecycle
+  ↓
 Theme Rotation
 ```
 
@@ -37,13 +39,51 @@ Theme Rotation
 
 ## 2. Swing銘柄抽出ワークフロー
 
-採用するSetupは次の3種類。
+現時点で正式採用するSetup Typeは次の3種類。
 
 1. **VCP**
 2. **Cup With Handle (CWH)**
 3. **Base Breakout**
 
 Genericな「New High Breakout」は独立カテゴリにせず、上記Setupの確認要素として扱う。
+
+### Setup Type と Lifecycle
+
+同じ分類軸に混ぜない。
+
+- `setup_type`: どのチャート型から始まったか。ブレイク後も原則不変。
+- `lifecycle`: 現在どの状態にあるか。価格構造に応じて更新。
+
+Lifecycleの正規値:
+
+```text
+SETUP
+BREAKOUT
+EXTENDED
+PULLBACK
+RETEST
+3WT
+TIGHT
+ASCENDING_BASE
+FAILED_BREAKOUT
+```
+
+遷移の基本形:
+
+```text
+SETUP
+  ↓ Pivot突破
+BREAKOUT
+  ├─→ EXTENDED
+  ├─→ PULLBACK
+  ├─→ RETEST
+  ├─→ 3WT
+  ├─→ TIGHT
+  ├─→ ASCENDING_BASE
+  └─→ FAILED_BREAKOUT
+```
+
+`FAILED_BREAKOUT` 後に新しい有効Baseを形成した場合は、新しいSetupとして `SETUP` へ戻す。元のブレイクを成功扱いに書き換えない。
 
 ### Step 1 — 一次スクリーナー
 
@@ -150,7 +190,38 @@ Setup構造
 - `🇺🇸セットアップ`
 - `🇯🇵セットアップ`
 
-SetupリストはVCP / CWH / Base Breakoutで分類する。
+Setupリストは **setup_type軸** で管理する。
+
+- VCP
+- CWH
+- Base Breakout
+- 無効 / 再形成待ち
+
+有効な正式Setupは原則 `lifecycle=SETUP` とする。
+
+### Step 6 — Pivot突破後 / Post-Breakout
+
+Pivotを明確に突破したら、元の `setup_type` を保持したまま `lifecycle=BREAKOUT` へ移行する。
+
+TradingView格納先:
+
+- US: `❤️ブレイクアウト`
+- Japan: `💙ブレイクアウト`
+
+TradingViewのブレイクアウトリストは **lifecycle軸** で分類する。
+
+1. **BREAKOUT** — Pivot突破直後。出来高・終値・Gap・Riskを確認
+2. **EXTENDED** — Pivotから上昇しすぎ。新規で追わず待つ
+3. **PULLBACK** — 10EMA / 21EMA等への押し。支持と売り圧力低下を確認
+4. **RETEST** — 元Pivot近辺の再テスト。Pivotが支持へ転換するか確認
+5. **3WT** — Three Weeks Tight。ブレイク後の追加買い候補
+6. **TIGHT** — 高値圏で値幅収縮。次のContinuation Entry候補
+7. **ASCENDING_BASE** — 上昇トレンド中に新Baseを形成
+8. **FAILED_BREAKOUT** — 元Pivot・主要支持を明確に割りブレイク仮説が崩れた状態
+
+重要: `PULLBACK / RETEST / 3WT / TIGHT / ASCENDING_BASE` は元のSetup Typeを置き換えない。例: VCPからブレイクした銘柄がRetest中なら `setup_type=VCP`, `lifecycle=RETEST`。
+
+過去snapshotに元のsetup_typeが保存されていない場合は、後から推測で補完しない。UIでは未判定として表示する。
 
 ---
 
@@ -266,13 +337,14 @@ Cheat → Early → Standardで増し玉する場合は、勝ちポジション�
 2. 一次スクリーナーWatchlistを更新
 3. Pre-Setup候補を再抽出
 4. Pivotとアラートを更新
-5. 既存Setupの昇格 / 降格 / Breakout済みを整理
+5. 既存Setupの昇格 / 降格を整理
+6. Breakout銘柄のLifecycleを再判定
 
 ### Daily
 
 - Pre-Setup / Setupの価格構造変化を確認
 - 発火済みREVIEWアラートを再評価
-- Breakout済み / Failed Setup / 再形成待ちを更新
+- Breakout銘柄を `BREAKOUT / EXTENDED / PULLBACK / RETEST / 3WT / TIGHT / ASCENDING_BASE / FAILED_BREAKOUT` へ更新
 - Market Outlook / Distribution Days / Momentum Healthを更新可能な範囲で確認
 
 ---
@@ -283,3 +355,4 @@ Cheat → Early → Standardで増し玉する場合は、勝ちポジション�
 - Watchlist読書き、個別OHLCV取得、単純価格アラートはMCPで利用する。
 - Pine Screenerは現行の標準運用には使用しない。
 - Pattern判定は完全自動検出ではなく、定量候補抽出 + チャート確認を基本とする。
+- 過去の保存データは遡及上書きせず、legacy `setup` しかないsnapshotはUI互換層で表示する。

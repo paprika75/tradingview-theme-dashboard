@@ -29,5 +29,17 @@
     "RS percentile is within current watchlist universe, not IBD",
     "Weekly first import is retrospective quantitative, not prior saved prediction",
     "Manual connector collection; scheduled collection not configured"
+  ],
+  "marketOutlook": [
+    {
+      "asOf": "2026-10-02",
+      "path": "live/market-outlook/1.0.0-index-outlook/2026-10-02.json",
+      "evaluationVersion": "1.0.0-index-outlook"
+    },
+    {
+      "asOf": "2026-10-05",
+      "path": "live/market-outlook/1.0.0-index-outlook/2026-10-05.json",
+      "evaluationVersion": "1.0.0-index-outlook"
+    }
   ]
 }

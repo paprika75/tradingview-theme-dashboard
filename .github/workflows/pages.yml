@@ -26,6 +26,7 @@ jobs:
           node --test tests/*.test.mjs
           python tests/validate_data.py
           python tests/test_live.py
+          python tests/test_market_outlook.py
       - uses: actions/configure-pages@v5
       - name: Stage static files
         run: python scripts/stage_static.py

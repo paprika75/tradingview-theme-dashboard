@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0-index-outlook",
+  "distribution": {"minimumDeclinePct": 0.2, "windowSessions": 25, "recoveryPct": 5},
+  "followThrough": {"minimumGainPct": 1.25, "minimumRallyDay": 4},
+  "pressure": {"distributionCount": 5, "clusterCount": 3, "clusterSessions": 5},
+  "correction": {"peakSessions": 21, "drawdownPct": 8, "below50Sessions": 2},
+  "minimumHistory": 200,
+  "indices": {
+    "US": [{"symbol":"SP:SPX","name":"S&P 500"},{"symbol":"NASDAQ:IXIC","name":"NASDAQ Composite"}],
+    "JP": [{"symbol":"TSE:TOPIX","name":"TOPIX"},{"symbol":"TVC:NI225","name":"日経225"}]
+  },
+  "aggregation": "All required indices must be assessable; otherwise UNASSESSED. Among assessable indices the more defensive state wins: correction > pressure > confirmed uptrend.",
+  "notes": [
+    "Independent deterministic model inspired by published IBD concepts, not official IBD data or an exact reproduction.",
+    "Fixed thresholds are our versioned implementation choices. No watchlist/leader inputs, discretionary stalling days, or return-based validation.",
+    "No uptrend is bootstrapped: an observed correction and subsequent valid rally/FTD are required to confirm an uptrend.",
+    "Correction starts at a fresh two-session 50DMA break plus >=8% drawdown from the 21-session high, a fresh 200DMA break, or rally/FTD low invalidation. Initial state may also be seeded by an existing price downtrend. A rally can confirm while still below moving averages.",
+    "Missing/non-positive volume is unavailable, never zero distribution days. Price trend is shown separately.",
+    "Distribution events expire after 25 sessions or a subsequent intraday high >= 5% above the event close; FTD resets active counts."
+  ],
+  "references": [
+    {"title":"IBD: Distribution Days","url":"https://www.investors.com/how-to-invest/investors-corner/stock-market-distribution-days-nasdaq-sp500-institutional-selling/"},
+    {"title":"IBD: Market Tops","url":"https://www.investors.com/how-to-invest/investors-corner/stock-market-forecast-index-tops/"},
+    {"title":"IBD: Follow-Through Day","url":"https://www.investors.com/how-to-invest/investors-corner/how-to-spot-a-stock-market-bottom-this-signal-marks-all-major-lows/"}
+  ]
+}

@@ -2,7 +2,7 @@ import unittest,sys
 from pathlib import Path
 from datetime import datetime,timezone
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from build_live import valid_bars,relative_return,percentile_map,weighted,ema
+from build_live import valid_bars,relative_return,percentile_map,weighted,ema,concentration_quality
 
 def bar(iso,price=100):return {'t':int(datetime.fromisoformat(iso).timestamp()),'o':price,'h':price+1,'l':price-1,'c':price,'v':100}
 class Observed(unittest.TestCase):
@@ -31,4 +31,8 @@ class Observed(unittest.TestCase):
   b=[{'date':'2026-10-01','c':100},{'date':'2026-10-02','c':105}]
   self.assertAlmostEqual(relative_return(a,b,1),100*(1.1/1.05-1))
   self.assertIsNone(relative_return(a,b[1:],1))
+ def test_concentration_quality_penalizes_single_winner(self):
+  self.assertEqual(concentration_quality([10,-2,-1]),0.0)
+  self.assertEqual(concentration_quality([5,5]),100.0)
+  self.assertLess(concentration_quality([20,1,1,1,1]),50)
 if __name__=='__main__':unittest.main()

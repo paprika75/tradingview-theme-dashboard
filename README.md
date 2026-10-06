@@ -1,185 +1,231 @@
 # Theme Atlas — TradingViewテーマ分析ダッシュボード
 
-PC優先の静的Webアプリ。公開URL: https://paprika75.github.io/tradingview-theme-dashboard/
+TradingViewの市場・テーマ・個別銘柄データを整理し、**市場環境 → テーマ → Leader → Pre-Setup / Setup** の順で投資候補を確認するための開発中ダッシュボード。
 
-## 実装した判断フロー
+公開URL: https://paprika75.github.io/tradingview-theme-dashboard/
 
-Momentum Health → Institutional Focus → Theme Translation → New Entry Opportunities / Active Theme Health → Theme Landscape → Theme Leaders → Setups → Theme Rotation。
+> **このREADMEは開発トップページです。**  
+> 現在の方針・未実装項目・次にやることをここに集約します。  
+> 詳細仕様は [Workflow](docs/WORKFLOW.md)、変更履歴は [Changelog](docs/CHANGELOG.md) を参照してください。
 
-ダークUI、US / Japan、Daily / Weekly、過去評価日切替、検索・フィルタ・並び替え、テーマ詳細、Leader Top 5、VCP / CWH / Base Breakout / Pullback・Retest、TradingViewリンク、順位Heatmap、選択テーマのみの折れ線、Market Driver History、新規テーマ候補を実装。
-トップ画面にはTheme LeadersとSetupsを独立表示。Leaderはテーマ内Top 3、SetupはEntry候補 / Readyすべて / 全Setup / Extendedで絞り込み。2セクションの対象テーマは連動し、`theme`・`setups`クエリで復元。
-保有監視の選択は市場別のlocalStorageに保存。公開データにユーザーのポジションを含めない。
+---
 
-## データの状態
+## 現在決まっている方針
 
-**数値、順位、Leader、Stage、Setup、AI解釈、保有例、過去の判断文章はすべてMock。実際の市場評価・事前予測ではない。**
+### 1. 市場環境
 
-既存TradingViewカタログのテーマ名・構成銘柄を維持。Energy / Oil Services / Gold Miners / Utilities等は、TV未登録のMock拡張例と明示。
-Daily 10評価日、Weekly 8評価週。祝日カレンダーは未接続。AI例は`kind: retrospective-mock-fixture`とMock生成例の時刻を保存し、過去の事前予測と区別する。
+市場全体の判断と、監視銘柄群の強さを分離する。
 
-## 構成
+- **Market Outlook**: 主要指数のみで判定
+- **Distribution Days / FTD**: 指数の価格・出来高を使う独自ルール
+- **参考投資比率**: Market Outlookから独立ルールで算出
+- **Momentum Health**: 監視銘柄群のBreadth / Stage 2等を見る補助指標
+
+米国は `SP:SPX` / `NASDAQ:IXIC` を使用。  
+日本は `TSE:TOPIX` / `TVC:NI225` を使用するが、指数出来高の入力が未解決のためDistribution Days / FTDは現時点で未判定。
+
+### 2. テーマ・銘柄選別
+
+判断フロー:
 
 ```text
-app.js                    ページ・URL・端末内監視状態
-lib/data.mjs              読込・時点結合・失敗表示
-lib/logic.mjs             定量判定
-lib/views.mjs             共通データを描画
-config/scoring.json       最新ウェイト・閾値・版番号
-config/versions/          過去評価時点の設定（不変）
-data/latest.json          Mock / Liveルーター
-data/mock/latest.json     履歴マニフェスト
-data/mock/daily/           日次評価・quantitative / scores
-data/mock/weekly/          週次評価・quantitative / scores
-data/raw/mock/            合成Raw観測
-data/analysis/mock/       独立した日付付きAI例・confidence
+Market Outlook
+→ Distribution Days / FTD
+→ Momentum Health
+→ Institutional Focus
+→ Theme Translation
+→ New Entry Opportunities / Active Theme Health
+→ Theme Landscape
+→ Theme Leaders
+→ Pre-Setup / Setups
+→ Theme Rotation
 ```
 
-旧`data/daily/`・`data/weekly/`は変更せず、`data/legacy-manifest.json`から参照可能。新UIはv2を使用する。
-定量スコアにAIのMacro / Institutional Alignmentを直接加算しない。AI材料は別表示して文脈判断を検証できる構造。
+### 3. Swing Setup
 
-## 初期評価ロジック
+採用するSetupは3種類だけ。
 
-- Momentum Health: Trend30 / Institutional Action20 / Breadth20 / Leadership20 / Breakout Quality10。
-- Daily / Weekly: 既存の提案重みを維持。全構成を詳細表示。
-- Leader: RS30 / Trend20 / Structure15 / Liquidity10 / Accumulation10 / Breakout10 / Fundamental5。
-- Opportunity: Weekly25 / Daily Acceleration20 / Breadth15 / Leader15 / Ready Setup15 / Momentum Health10。Dailyデータ・Weekly強度・市場環境・Ready Setup・非Extendedをゲート判定。
-- Active Health: 3–5営業日の短期変化と3週間の中期変化を分離。短期悪化だけならWATCH。中期スコア低下＋200DMA維持率低下を加えてDETERIORATING。
+1. **VCP**
+2. **Cup With Handle (CWH)**
+3. **Base Breakout**
 
-Momentum Healthカテゴリ値やRS・Stageの本番用正規化/検出は未実装。上記は検証前の初期設計。閾値とウェイトは設定ファイルで変更可能。1桁スコアの丸めはhalf-upで統一し、欠損入力は点数を—にする。
+GenericなNew High Breakoutは独立カテゴリにしない。
 
-## 時点・更新状態
+### 4. 一次スクリーニング
 
-URL例: `?market=us&period=daily&date=2026-10-01&theme=all&setups=candidate`、`theme.html?id=us-6&market=us&period=daily&date=2026-10-01`。従来の大文字US / JPにも対応。
-選択日以前のDaily / Weekly・AIファイルを使い、未来の評価を混ぜない。ランキング差分は保存済みの前回評価から計算。履歴ファイルを読み込めない場合はHeatmapの—と折れ線の切断で表現。
-MockはMOCK DATA、過去はARCHIVE。評価の読込失敗で過去データを使うとSTALE DATAと理由・最終成功日を表示。Live更新予定を超過した場合もSTALE。IBD Referenceは未取得、Exposure・DIVERGENCEは未判定。
+TradingView標準Stock Screenerを週1回手動で実行する。
 
-## 起動・検証
+理由: TradingView MCPの `run_screener` は429が発生することがあり、現時点では全市場スクリーニングの自動運用に依存しない。
+
+一次Watchlist:
+
+- `🇺🇸一次スクリーナー`
+- `🇯🇵一次スクリーナー`
+
+一次では広く拾い、150SMA、200SMA傾き、RS、ベース構造などは後段で評価する。
+
+### 5. Pre-Setup
+
+一次Watchlistから日足OHLCVを確認し、ブレイク前候補を抽出する。
+
+重視する項目:
+
+- 直近高値 / 抵抗帯までの距離
+- 10〜15日の値幅収縮
+- ATR contraction
+- Volume dry-up
+- 高値・安値の切り上げ
+- 明確なPivot候補
+- Relative Strength
+
+固定60日Base DepthはHard Filterにしない。
+
+状態:
+
+- **Ready**: Pivotまで概ね3%以内
+- **Near**: 3〜7%
+- **Forming**: それ以上でも形成が進行中
+
+Pre-Setup Watchlist:
+
+- `🇺🇸プレセットアップ`
+- `🇯🇵プレセットアップ`
+
+### 6. Pivotアラート
+
+Pre-Setup追加時にTradingView価格アラートを設定する。
+
+```text
+REVIEW | TICKER | Pivot PRICE
+```
+
+- `Price > Pivot`
+- 1分判定
+- 初回発火で自動停止
+- Mobile Push / Popup ON
+
+**REVIEW発火は自動Buyではない。**  
+発火後にSetup構造、出来高、Gap、Stop、Risk、市場環境を再評価する。
+
+### 7. 正式Setup
+
+Pre-Setupからチャート確認後、VCP / CWH / Base Breakoutに分類して正式Setupへ昇格する。
+
+確認順:
+
+```text
+Setup構造
+→ Standard Pivot
+→ Early / Cheat Entry（必要な場合）
+→ 構造的Stop
+→ Entry-to-Stop Risk
+→ Extended判定
+```
+
+---
+
+## 開発ロードマップ / Issues
+
+### P0 — まず完成させる
+
+- [#1 Watchlist起点のPre-Setup抽出ロジック](https://github.com/paprika75/tradingview-theme-dashboard/issues/1)
+- [#2 Pre-Setupから正式Setupへの判定・昇格フロー](https://github.com/paprika75/tradingview-theme-dashboard/issues/2)
+- [#3 Pivot REVIEWアラートのライフサイクル管理](https://github.com/paprika75/tradingview-theme-dashboard/issues/3)
+
+### P1 — 実運用を安定させる
+
+- [#4 RS Rank proxyを本番用Universeで計算](https://github.com/paprika75/tradingview-theme-dashboard/issues/4)
+- [#5 Observedデータ更新フローを定期運用化](https://github.com/paprika75/tradingview-theme-dashboard/issues/5)
+- [#6 DashboardにPre-Setup / Setup監視状態を統合](https://github.com/paprika75/tradingview-theme-dashboard/issues/6)
+- [#7 日本市場Market Outlookの出来高データ源を決定](https://github.com/paprika75/tradingview-theme-dashboard/issues/7)
+
+### P2 — 精度向上
+
+- [#8 EPS・売上成長を補助スコアとして追加](https://github.com/paprika75/tradingview-theme-dashboard/issues/8)
+
+---
+
+## 現在できていること
+
+- US / Japanページ
+- Daily / Weekly
+- Observed / Demo
+- Market Outlook
+- Distribution Days / FTDロジック（米国）
+- 参考投資比率
+- Momentum Health
+- Theme Landscape / Opportunity / Active Health
+- Theme Leaders
+- Setup候補表示
+- TradingView OHLCVを使うObserved評価
+- TradingView Watchlistの読み書き
+- TradingView価格アラート作成
+- 過去snapshot / rule versionの保存
+
+---
+
+## まだ手動のもの
+
+- TradingView標準Stock Screenerの週次実行
+- 一次Watchlistへの結果投入
+- VCP / CWH / Base Breakoutの最終チャート確認
+- TradingView MCP認証を必要とするObservedデータ取得
+
+---
+
+## データ上の原則
+
+- 過去snapshotを現在ルールで遡及上書きしない
+- Future dataを過去評価へ混ぜない
+- 欠損データを0点として扱わない
+- Mock / DemoとObservedを混在させない
+- 市場環境と監視銘柄群の評価を混同しない
+- 独自指標をIBD公式指標として表現しない
+
+---
+
+## 主な構成
+
+```text
+app.js                    page / URL / local state
+lib/data.mjs              data loading / point-in-time join / status
+lib/logic.mjs             quantitative logic
+lib/views.mjs             shared rendering
+config/scoring.json       current weights / thresholds
+config/market-outlook.json
+config/market-exposure.json
+config/versions/          immutable historical rule versions
+data/                     generated / archived evaluation data
+observations/              captured TradingView observations
+scripts/                   build scripts
+tests/                     Node / Python tests
+docs/WORKFLOW.md           current analysis / screening workflow
+docs/CHANGELOG.md          implementation history
+```
+
+---
+
+## Local起動
 
 ```bash
 python -m http.server 8000
-node --test tests/v2.test.mjs
-python tests/validate_data.py
 ```
 
-http://localhost:8000 を開く。ES modulesとJSONのfetchを使用するためHTTPで配信する。
-`node tests/logic.cjs`もv2テストへ転送。Pythonテストは旧アーカイブの不変性・整合性を検証する。
-`python scripts/build_v2_mock.py`は同一内容なら再現可能。既存評価やAIファイルを異なる内容で上書きしようとすると停止する。公開後の変更は新しい版/履歴として追加する。旧v1生成・単体プレビューのスクリプトは誤使用を防ぐ案内を表示する。
+ブラウザで `http://localhost:8000` を開く。
 
-## GitHub Pages
+ES modulesとJSON fetchを使用するため、HTMLを直接開かずHTTP経由で配信する。
 
-Pages SourceはGitHub Actions。`main`へのpush・手動実行でテスト→静的配信。依存ライブラリ・バックエンド・APIキーは不要。HTML / CSS / JS / lib / config / dataのみ配信する。
-
-## 次の段階・制約
-
-1. 実OHLCVとBreadth取得元、市場別確定時刻・祝日・欠損値処理を決める。
-2. RS / Stage / Setup / Distribution / Breakout等の実数計算と検証を追加する。
-3. ニュース・イベント・決算の出典付きAI生成をActions側で行い、日付付きファイルを追記する。秘密情報はGitHub Secretsで管理し、静的ページへ渡さない。
-4. 同一データ処理を使うスマホ用テーマカード・ナビゲーションを追加する。
-
-GitHub Pages単体では秘密キーを使うデータ取得やAI生成を実行しない。取得/生成は将来のActions等へ分離する。現時点のActionsは配信のみで、データ自動更新は未接続。
-PC1280–1440px基準。横幅の多いテーブルは独立スクロール。スマホ専用UIは未実装。
-
-## PC公開画面の検証
-
-2026-10-02 JST、GitHub Pages上でUS / Japan、Daily / Weekly、過去日付、検索・0件、Entryフィルタ、並び替え、監視テーマの端末内保存と解除、テーマ詳細、TradingViewリンク先、候補ダイアログ、最大4テーマの折れ線、AI判断履歴、評価設定を確認。1280px / 1440pxの実際のiframe内で、ページ全体・主要グリッド・カードに意図しない横はみ出しがないことを確認。多列テーブルは独立スクロール。検証ページは`qa.html`。
-
-配信時にCSSとES modulesの依存を内容ハッシュでバージョン付けし、古いキャッシュが混在しにくい構成にした。過去評価は保存された設定版を使い、現在の設定変更で判定を再計算しない。
-
-
-## 2026-10-06 引継ぎ確認と補完
-
-開始時は `main` / `eb68a4d51734b9eca554d12901012e4312b88ed3`、取得した作業ツリーに未コミット変更なし。前回の作業領域に残っていたv1成果物よりGitHub上のv2が新しいため、v2を維持して補完した。停止時点の未保存編集の有無は確認できない。
-
-既存のMomentum Health、Institutional Focus、Translation、Opportunity、Active Health、Landscape、履歴・詳細・端末内監視保存を維持。詳細ページだけにあったLeader / Setupをトップ画面にも追加し、8つの主要セクションと追加のRotationをそろえた。過去スナップショット、AI文章、評価設定は変更していない。
-
-トップ画面のSetup候補は、保存済みテーマ評価のEmerging / Actionableに加え、銘柄のStage 2・Ready・有効なEntry / Stop・非Extendedを必要条件にする。銘柄の価格とEntryから乖離を計算し、未通過の条件を併記する。Entry候補が0件でも全Setupへ切り替えて形成中の候補を確認できる。Weekly表示ではその週の保存水準を表示する。
-
-この追加フィルタは監視候補を狭めるもので、過去のテーマスコアや評価設定の再計算は行わない。履歴・実データ・AI解釈の分離構造は既存実装を使用する。本番データ、自動更新、出典付きAI生成、スマホ専用UIは引き続き次段階。
-
-### 今回の検証結果
-
-2026-10-06 JST、Nodeテスト14件・Pythonアーカイブ検証2件が成功。GitHub ActionsのテストとPages配信も成功。公開画面で8主要セクション、Leader / Setupのテーマ選択連動、全Setup / Entry候補切替、URLによる再読込復元、LeaderからSetupへの遷移、0件表示、Japan / Weekly / 過去日付、テーマ詳細、監視選択の保存・解除、検索0件、順位チャートを確認した。
-
-公開qa.htmlの1280px / 1440px iframeでworkspaceと全主要パネルの境界を確認し、横はみ出しなし。多列テーブルはパネル内でスクロールする。実データでの投資判断ロジックの有効性は未検証。
-
-
-## Observed Technicals v3 — 2026-10-06
-
-既存Demoを保持し、画面のObserved / Demo切替を追加。ObservedはTradingView MCPで取得した分割調整済み確定日足を使用する。初回Dailyは2026-10-05、Weeklyは2026-10-02。取得スナップショットは `observations/2026-10-06/ohlcv.json` に保存し、画面では集計済みJSONだけを読む。日米共通の確定日、株式は引け後30分、FX等の夜間開始セッションとBTCのUTC24時間足を区別して未確定足を除外する。
-
-21EMA・50/150/200SMA・確定週40SMA、リターン・RVOL・52週高安値を算出。RSは指数比リターン（63/126/189/252営業日、40/20/20/20重み）を現時点の監視銘柄群内で百分位化する。IBD RS Ratingや全市場順位ではない。Stage 2はTrend Templateの代理判定で、40週SMAは参考表示。
-
-Breadthは監視銘柄群内。2銘柄以上かつ必要な履歴を持つ有効構成80%以上のテーマだけに順位を付ける。価格未取得・IPO等の履歴不足・異なる市場は欠損理由と有効構成率を表示する。日本株の売買代金は円、米国株はドルで別の流動性基準を使う。配当込み総収益・為替換算は行わない。
-
-v3のウェイトは `config/versions/3.0.0-observed-technicals.json`。財務・Breakout Qualityを0点で代用せず、計算対象を明示した技術評価にした。日本指数の出来高が未取得のためMomentum Healthは別重みを明示。Momentum Healthの需給は日足価格・出来高の代理指標で、機関投資家の実注文を示すものではない。
-
-Base / Pullbackは高安値・MA・RVOLによるルール候補。ReadyはStage 2・形成条件・Entry/Stopリスク8%以内・価格位置・出来高の条件で選別。VCP/CWHの確定検出は未実装。価格水準の算出と買い推奨を区別し、手動チャート確認を必要とする。ObservedではAI・Macro翻訳・新テーマ発見は未接続と表示し、Mock文章を混ぜない。監視テーマの端末内選択は引き継ぐ。
-
-### 更新経路
-
-TradingView MCPの `tv_get_ohlcv` で取得した `{source,fetchedAt,documents:{"EXCHANGE:TICKER":tool_result}}` を新しい観測日フォルダへ保存し、以下を実行する。GitHub Pages自身から認証済みTradingViewへ接続することはない。
+### Tests
 
 ```bash
-python scripts/build_live.py --input observations/YYYY-MM-DD/ohlcv.json --activate
 node --test tests/*.test.mjs
 python tests/test_live.py
 python tests/validate_data.py
 ```
 
-既存の日次・週次スナップショットと異なる内容の上書きは拒否する。初回週次は今回取得した実足からの遡及計算であり、当時保存した判断ではない。過去AI履歴は作成しない。過去の現在カタログを使う計算はバックテストではない。自動収集・スケジュールはまだ未接続。最終取得から36時間超でSTALEを表示する。
+---
 
-次はデータ取得の継続運用、出典付きの日付別AI解釈、VCP/CWHのチャート確認フロー・検証、スマホUIの順。
+## ドキュメント
 
-### Observed公開画面の検証
-
-2026-10-06 UTC、Nodeテスト17件・Pythonテスト8件とPages配信が成功。公開画面でObserved / Demo、US / Japan、Daily / Weekly、全テーマのLeader / Setup、実足を使うテーマ詳細、AI未接続の表示を確認。1280px / 1440pxのiframeでページ全体の横はみ出しなし。データ自動取得とAI解釈の生成は未実装。
-
-
-## 2026-10-06 — 日米ページと3本柱の要約
-
-米国株は `us.html`、日本株は `japan.html`。共通のデータ読込・定量ロジック・8主要セクションを使用する。パスが市場を決めるため、矛盾したmarketクエリを付けても市場は変わらない。従来の `index.html?market=us/jp` は該当ページへ移動し、日付・期間・データモード・テーマ選択・アンカーを保持する。市場間の移動では旧市場のテーマ選択をリセットし、期間・日付・Observed / Demoを保持する。詳細・履歴からも市場別ページへ戻れる。
-
-上部の3本柱は①市場環境・参考投資比率、②新規投資候補のテーマと銘柄、③継続監視・警戒。要約は8セクションと同じ既存評価を使用し、スコア・ウェイト・過去スナップショットは変更しない。参考投資比率は未実装と表示し、指数基準も明記する。日本の主基準はまだ日経225で、TOPIX変更は次段階。
-
-ACTIVE THEME HEALTHは全テーマを評価し、警戒対象から並べる。Healthy / Watch / DeterioratingとUnassessedを分け、入力不足を警戒件数に含めない。Observedの短期・中期の変化は取得日足からの遡及計算であり、保存済みランキング履歴の数とは異なる。初回の保存履歴は日次・週次各1時点。
-
-公開サイトは実際の保有銘柄・取得価格・数量・損益を扱わない。端末内の任意の監視テーマ選択は維持するが、公開要約・健全性評価はその選択に依存しない。DemoのactiveSamplesは初期選択として使わない。個人のポジションを保存・送信する機能は追加していない。
-
-検証: Nodeテスト20件（市場固定ルーティング・テーマ状態の引継ぎ・公開要約と端末選択の独立性・欠損と警戒の区別を含む）、Python8件、Pages用静的ファイル生成。自動更新・出典付きAI・参考投資比率・財務評価・VCP/CWH検出・スマホ専用UIは次段階。
-
-公開画面で日米ページ、Weekly、Demo、テーマ詳細の市場別戻り先、旧URLからの移動を確認。1280px / 1440pxの各市場ページで要約カードとページ全体の横はみ出しなし。再描画時もセクションアンカーを保持して対象へ移動する。
-
-
-## 2026-10-07 — Momentum Healthの表示名
-
-旧Market Healthの表示名をMomentum Healthへ変更。監視銘柄群のBreadth / Stage 2比率と、基準指数のトレンド・出来高代理を合成する評価であることを要約・セクションに明記した。監視銘柄の構成に偏りがあるため、市場全体の健全性やIBDの市場区分を示すものとして扱わない。指数評価と監視群評価の内訳も表示名で区別する。計算式・判定閾値・保存済み評価・内部データキー・既存アンカーは維持。
-
-
-## 2026-10-07 — Market Outlook / Distribution Days / Momentum Health
-
-8主要セクションの第1セクションを、①指数によるMarket Outlook、②指数別のDistribution Days、③補助指標Momentum Healthの順に変更。上部の市場要約はMomentum Healthの点数ではなくMarket Outlookを表示する。市場判定に監視テーマ・個別銘柄・Leader評価は使用しない。従来のMomentum Healthは監視群と指数環境の合成点として明示し、テーマランキング・技術的Entry候補の既存計算は維持した。参考投資比率の算出は未実装。
-
-米国はSP:SPXとNASDAQ:IXIC（NASDAQ 100ではなく総合）、日本はTSE:TOPIXとTVC:NI225。TradingViewから750営業日の足を取得し、確定日までに制限。日本指数には出来高がないため売り抜け日・FTD・市場区分は未判定とし、価格の方向は別表示する。ETFの出来高を指数出来高として代用しない。
-
-設定は `config/market-outlook.json` の独立した `1.0.0-index-outlook`。売り抜け日は丸め前の下落0.2%以上・前日より出来高増加、25営業日経過または日中高値で5%回復で除外。FTDは調整後の上昇初日からDay 4以降、1.25%以上の上昇・出来高増加・起点安値維持。FTDで有効売り抜け日をリセットし、起点・FTD安値割れで上昇確認を無効化する。新しい2日連続50DMA割れと21営業日高値から8%以上の下落、または新しい200DMA割れも調整開始条件。FTDは移動平均より下でも成立可能。警戒は50DMA割れ、売り抜け日5日以上または5営業日に3日の集中。必要な全指数が判定可能なら弱い側の状態を採用し、1本でも未判定なら全体を未判定。初期状態を上昇確認済みと仮定しない。
-
-これらの固定閾値と合成方法は独自の実装上の選択であり、IBDの公式判定を再現するものではない。Stalling Dayなどの裁量判断を含めず、実効性・収益性は未検証。公式判定・記事・図は転載せず、公開説明への参考リンクを表示する。
-
-保存済みのテーマ評価・設定・AI履歴は上書きせず、別の市場判定ファイルを評価日・版ごとに追加する。初回の日次2026-10-05 / 週次2026-10-02は取得足からの遡及計算であり、当時公表した判断ではない。データ日・取得時刻・ルール版を表示し、未来の足を使わない。DemoにObservedの市場区分は流用しない。
-
-更新: `python scripts/build_market_outlook.py --input observations/YYYY-MM-DD/market-indices.json`。同一版・同一評価日の異なる内容は上書き拒否する。データ取得とテーマ評価の自動更新は未接続。
-
-検証: Node23件・Python21件（FTD境界・起点/FTD安値割れ・丸め前0.2%・25営業日失効・日中回復・未来足除外・新規取得時の過去保存維持・欠損/日付不一致/Demo分離を含む）。公開日米ページの1280px / 1440pxで横はみ出しなし。
-
-
-## 2026-10-07 — 参考投資比率
-
-参考投資比率を上部要約とMarket Outlook内に追加。IBDの公開説明の5レンジ（0–20 / 20–40 / 40–60 / 60–80 / 80–100%）を参考に、指数だけから独自算出する。対象は各市場の株式投資用資金（株式＋待機現金）に対する株式の割合。総資産配分、実際の保有割合、公式IBDの当日値ではない。監視銘柄・Momentum Health・テーマスコアは使わない。
-
-設定は `config/market-exposure.json`、独立版 `1.0.0-index-exposure`。調整は0–20%。警戒は40–60%を基本とし、50DMA以下・売り抜け7日以上・5営業日に3日以上集中なら20–40%。上昇確認後はFTD当日を経過0日とし、5営業日未満20–40%、5–9営業日40–60%、10営業日以上60–80%。15営業日以上・50/200DMA上・50DMA上向き・売り抜け2日以下を全て満たすと80–100%。価格構造が未確認なら40–60%以下に制限し、必要な指数の低いレンジを採用する。閾値は独自の初期設定で、有効性・収益性は未検証。出来高や有効FTD・確定営業日が不足する場合は未判定。
-
-画面に計算理由、5レンジ、全ルール、前回保存評価の日付とレンジ・維持/引上げ/引下げを表示する。保存のない営業日は補完せず、版が異なる前回評価とは比較しない。初回分は保存済みの市場判定と取得済み確定足から遡及算出し、当時公表した判断と区別する。参考比率をテーマ・Entry候補の既存ゲートに接続する作業は未実装。
-
-更新: `python scripts/build_market_exposure.py --input observations/YYYY-MM-DD/market-indices.json`。市場判定の保存後に実行。同一版の過去保存は再取得時にも維持し、ルール変更には新しい版が必要。日次/週次の評価日・モード・参照する市場判定の版が一致しない場合、比率のみ未判定にする。DemoにはObservedを流用しない。自動取得・定期更新は引き続き未接続。
-
-検証: Node27件・Python31件を通過。FTD経過日数と価格条件、警戒閾値、未来足除外、保存維持・同版ルール変更拒否、評価日/版/モード不整合、監視群からの独立性、Demo分離を確認。
+- **Current workflow / rules**: [docs/WORKFLOW.md](docs/WORKFLOW.md)
+- **Implementation history**: [docs/CHANGELOG.md](docs/CHANGELOG.md)

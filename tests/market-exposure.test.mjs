@@ -23,7 +23,7 @@ test('reference ranges match the selected date and remain independent of watchli
  }
 });
 test('corrupt exposure data fails closed while theme data remains available',async()=>{
- for(const patch of [d=>({...d,asOf:'2099-01-01'}),d=>({...d,mode:'mock'}),d=>({...d,outlookVersion:'unknown'}),d=>({...d,markets:{...d.markets,US:{...d.markets.US,band:4,range:[20,40]}}})]){
+ for(const patch of [d=>({...d,markets:{...d.markets,US:{...d.markets.US,band:null,range:[20,40]}}}),d=>({...d,asOf:'2099-01-01'}),d=>({...d,mode:'mock'}),d=>({...d,outlookVersion:'unknown'}),d=>({...d,markets:{...d.markets,US:{...d.markets.US,band:4,range:[20,40]}}})]){
   const custom=async p=>{const r=await fetcher(p);return p.includes('/market-exposure/')?{ok:true,json:async()=>patch(await r.json())}:r;};
   const repo=await new DataRepository(custom).load(),ctx=await repo.context('daily','2026-10-05','US');
   assert.equal(ctx.exposure,null);assert.ok(ctx.exposureError);assert.ok(ctx.rows.length>0);

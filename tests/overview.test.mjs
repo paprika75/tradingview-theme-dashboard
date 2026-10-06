@@ -35,7 +35,7 @@ test('public summary uses all themes and keeps missing health history separate f
   assert.equal(V.hero(ctx,state,[]),V.hero(ctx,state,ctx.rows.map(t=>t.id)));
   assert.equal(V.activeThemes(ctx,state,[]),V.activeThemes(ctx,state,[ctx.rows[0].id]));
   const html=V.hero(ctx,state)+V.activeThemes(ctx,state);
-  assert.ok(html.includes('参考投資比率'));assert.ok(html.includes('未実装'));
+  assert.ok(html.includes('参考投資比率'));assert.ok(html.includes(market==='US'?'20–40%':'未判定'));
   assert.ok(html.includes('履歴不足・未評価'));assert.ok(!html.includes('保有テーマ'));
   for(const t of ctx.rows)assert.ok(html.includes(V.esc(t.name)));
  }

@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "mode": "live",
+  "asOf": "2026-10-02",
+  "evaluationVersion": "1.0.0-index-exposure",
+  "outlookVersion": "1.0.0-index-outlook",
+  "calculatedAt": "2026-10-06T18:35:24.126Z",
+  "rules": {
+    "version": "1.0.0-index-exposure",
+    "ranges": [
+      [
+        0,
+        20
+      ],
+      [
+        20,
+        40
+      ],
+      [
+        40,
+        60
+      ],
+      [
+        60,
+        80
+      ],
+      [
+        80,
+        100
+      ]
+    ],
+    "ftdSessions": {
+      "developing": 5,
+      "established": 10,
+      "mature": 15
+    },
+    "heavyDistributionCount": 7,
+    "fullExposureMaxDistributionCount": 2,
+    "clusterSessions": 5,
+    "clusterCount": 3,
+    "scope": "各市場の株式投資用資金（株式＋待機現金）に対する株式の割合",
+    "reference": "https://get.investors.com/wp-content/uploads/2024/08/IBDD-How-to-buy-Stocks-infographic.pdf"
+  },
+  "provenance": "Retrospective reference range from saved index outlook; not an actual allocation",
+  "markets": {
+    "US": {
+      "band": 1,
+      "range": [
+        20,
+        40
+      ],
+      "reasons": [
+        "S&P 500：売り抜け日7日（強い警戒）",
+        "NASDAQ Composite：FTD後123営業日・売り抜け日3日",
+        "必要な指数のうち低いレンジを採用。監視銘柄の点数は使用しません"
+      ],
+      "inputs": [
+        {
+          "symbol": "SP:SPX",
+          "name": "S&P 500",
+          "band": 1,
+          "ftdSessionsElapsed": 123,
+          "above50": true,
+          "above200": true,
+          "distributionCount": 7,
+          "recentDistributionCount": 2
+        },
+        {
+          "symbol": "NASDAQ:IXIC",
+          "name": "NASDAQ Composite",
+          "band": 3,
+          "ftdSessionsElapsed": 123,
+          "above50": true,
+          "above200": true,
+          "distributionCount": 3,
+          "recentDistributionCount": 0
+        }
+      ],
+      "previous": null,
+      "change": null
+    },
+    "JP": {
+      "band": null,
+      "range": null,
+      "reasons": [
+        "必要な指数の市場区分・価格・出来高評価が不足しているため未判定"
+      ],
+      "inputs": [],
+      "previous": null,
+      "change": null
+    }
+  }
+}

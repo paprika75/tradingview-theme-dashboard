@@ -27,6 +27,12 @@
 .outlook-overview small,.outlook-index>small,.outlook-ftd small{display:block;color:var(--muted);font-size:10px;line-height:1.7}
 .outlook-overview aside{display:flex;flex-direction:column;gap:10px;padding:16px;background:#142030;border-radius:6px;font-size:11px}
 .outlook-overview aside strong{font-size:19px;font-weight:500}
+.exposure-detail{padding:0 20px 20px;font-size:11px;line-height:1.8}
+.exposure-detail>p{color:var(--muted)}
+.exposure-detail ul{padding-left:18px}
+.exposure-bands{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 10px}
+.exposure-bands span{padding:6px 12px;border:1px solid var(--line);border-radius:4px;color:var(--muted)}
+.exposure-bands .selected{color:var(--text);background:#364725;border-color:#7ba64d}
 .outlook-index-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding:18px 20px}
 .outlook-index,.distribution-card{min-width:0;background:#142030;border:1px solid var(--line);border-radius:6px;padding:15px}
 .outlook-title{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:8px}

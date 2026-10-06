@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-07T04:01:00+09:00",
+  "description": "Append-only per-stock analysis log. latestAnalysisDate points to the newest saved analysis; older analyses remain in each symbol file.",
+  "symbols": {
+    "NYSE:VST": {
+      "path": "data/stock-analysis/us/NYSE_VST.json",
+      "latestAnalysisDate": "2026-10-07",
+      "marketDataAsOf": "2026-10-06"
+    }
+  }
+}

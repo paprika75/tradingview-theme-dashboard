@@ -3,6 +3,7 @@
   "symbol": "NYSE:VST",
   "name": "Vistra Corp.",
   "market": "US",
+  "currency": "USD",
   "theme": "データセンター電力・冷却",
   "analyses": [
     {

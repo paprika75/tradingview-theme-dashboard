@@ -4,7 +4,7 @@ PC優先の静的Webアプリ。公開URL: https://paprika75.github.io/tradingvi
 
 ## 実装した判断フロー
 
-Market Health → Institutional Focus → Theme Translation → New Entry Opportunities / Active Theme Health → Theme Landscape → Theme Leaders → Setups → Theme Rotation。
+Momentum Health → Institutional Focus → Theme Translation → New Entry Opportunities / Active Theme Health → Theme Landscape → Theme Leaders → Setups → Theme Rotation。
 
 ダークUI、US / Japan、Daily / Weekly、過去評価日切替、検索・フィルタ・並び替え、テーマ詳細、Leader Top 5、VCP / CWH / Base Breakout / Pullback・Retest、TradingViewリンク、順位Heatmap、選択テーマのみの折れ線、Market Driver History、新規テーマ候補を実装。
 トップ画面にはTheme LeadersとSetupsを独立表示。Leaderはテーマ内Top 3、SetupはEntry候補 / Readyすべて / 全Setup / Extendedで絞り込み。2セクションの対象テーマは連動し、`theme`・`setups`クエリで復元。
@@ -39,13 +39,13 @@ data/analysis/mock/       独立した日付付きAI例・confidence
 
 ## 初期評価ロジック
 
-- Market Health: Trend30 / Institutional Action20 / Breadth20 / Leadership20 / Breakout Quality10。
+- Momentum Health: Trend30 / Institutional Action20 / Breadth20 / Leadership20 / Breakout Quality10。
 - Daily / Weekly: 既存の提案重みを維持。全構成を詳細表示。
 - Leader: RS30 / Trend20 / Structure15 / Liquidity10 / Accumulation10 / Breakout10 / Fundamental5。
-- Opportunity: Weekly25 / Daily Acceleration20 / Breadth15 / Leader15 / Ready Setup15 / Market Health10。Dailyデータ・Weekly強度・市場環境・Ready Setup・非Extendedをゲート判定。
+- Opportunity: Weekly25 / Daily Acceleration20 / Breadth15 / Leader15 / Ready Setup15 / Momentum Health10。Dailyデータ・Weekly強度・市場環境・Ready Setup・非Extendedをゲート判定。
 - Active Health: 3–5営業日の短期変化と3週間の中期変化を分離。短期悪化だけならWATCH。中期スコア低下＋200DMA維持率低下を加えてDETERIORATING。
 
-Market Healthカテゴリ値やRS・Stageの本番用正規化/検出は未実装。上記は検証前の初期設計。閾値とウェイトは設定ファイルで変更可能。1桁スコアの丸めはhalf-upで統一し、欠損入力は点数を—にする。
+Momentum Healthカテゴリ値やRS・Stageの本番用正規化/検出は未実装。上記は検証前の初期設計。閾値とウェイトは設定ファイルで変更可能。1桁スコアの丸めはhalf-upで統一し、欠損入力は点数を—にする。
 
 ## 時点・更新状態
 
@@ -90,7 +90,7 @@ PC1280–1440px基準。横幅の多いテーブルは独立スクロール。�
 
 開始時は `main` / `eb68a4d51734b9eca554d12901012e4312b88ed3`、取得した作業ツリーに未コミット変更なし。前回の作業領域に残っていたv1成果物よりGitHub上のv2が新しいため、v2を維持して補完した。停止時点の未保存編集の有無は確認できない。
 
-既存のMarket Health、Institutional Focus、Translation、Opportunity、Active Health、Landscape、履歴・詳細・端末内監視保存を維持。詳細ページだけにあったLeader / Setupをトップ画面にも追加し、8つの主要セクションと追加のRotationをそろえた。過去スナップショット、AI文章、評価設定は変更していない。
+既存のMomentum Health、Institutional Focus、Translation、Opportunity、Active Health、Landscape、履歴・詳細・端末内監視保存を維持。詳細ページだけにあったLeader / Setupをトップ画面にも追加し、8つの主要セクションと追加のRotationをそろえた。過去スナップショット、AI文章、評価設定は変更していない。
 
 トップ画面のSetup候補は、保存済みテーマ評価のEmerging / Actionableに加え、銘柄のStage 2・Ready・有効なEntry / Stop・非Extendedを必要条件にする。銘柄の価格とEntryから乖離を計算し、未通過の条件を併記する。Entry候補が0件でも全Setupへ切り替えて形成中の候補を確認できる。Weekly表示ではその週の保存水準を表示する。
 
@@ -111,7 +111,7 @@ PC1280–1440px基準。横幅の多いテーブルは独立スクロール。�
 
 Breadthは監視銘柄群内。2銘柄以上かつ必要な履歴を持つ有効構成80%以上のテーマだけに順位を付ける。価格未取得・IPO等の履歴不足・異なる市場は欠損理由と有効構成率を表示する。日本株の売買代金は円、米国株はドルで別の流動性基準を使う。配当込み総収益・為替換算は行わない。
 
-v3のウェイトは `config/versions/3.0.0-observed-technicals.json`。財務・Breakout Qualityを0点で代用せず、計算対象を明示した技術評価にした。日本指数の出来高が未取得のためMarket Healthは別重みを明示。Market Healthの需給は日足価格・出来高の代理指標で、機関投資家の実注文を示すものではない。
+v3のウェイトは `config/versions/3.0.0-observed-technicals.json`。財務・Breakout Qualityを0点で代用せず、計算対象を明示した技術評価にした。日本指数の出来高が未取得のためMomentum Healthは別重みを明示。Momentum Healthの需給は日足価格・出来高の代理指標で、機関投資家の実注文を示すものではない。
 
 Base / Pullbackは高安値・MA・RVOLによるルール候補。ReadyはStage 2・形成条件・Entry/Stopリスク8%以内・価格位置・出来高の条件で選別。VCP/CWHの確定検出は未実装。価格水準の算出と買い推奨を区別し、手動チャート確認を必要とする。ObservedではAI・Macro翻訳・新テーマ発見は未接続と表示し、Mock文章を混ぜない。監視テーマの端末内選択は引き継ぐ。
 
@@ -148,3 +148,8 @@ ACTIVE THEME HEALTHは全テーマを評価し、警戒対象から並べる。H
 検証: Nodeテスト20件（市場固定ルーティング・テーマ状態の引継ぎ・公開要約と端末選択の独立性・欠損と警戒の区別を含む）、Python8件、Pages用静的ファイル生成。自動更新・出典付きAI・参考投資比率・財務評価・VCP/CWH検出・スマホ専用UIは次段階。
 
 公開画面で日米ページ、Weekly、Demo、テーマ詳細の市場別戻り先、旧URLからの移動を確認。1280px / 1440pxの各市場ページで要約カードとページ全体の横はみ出しなし。再描画時もセクションアンカーを保持して対象へ移動する。
+
+
+## 2026-10-07 — Momentum Healthの表示名
+
+旧Market Healthの表示名をMomentum Healthへ変更。監視銘柄群のBreadth / Stage 2比率と、基準指数のトレンド・出来高代理を合成する評価であることを要約・セクションに明記した。監視銘柄の構成に偏りがあるため、市場全体の健全性やIBDの市場区分を示すものとして扱わない。指数評価と監視群評価の内訳も表示名で区別する。計算式・判定閾値・保存済み評価・内部データキー・既存アンカーは維持。

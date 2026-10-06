@@ -4,9 +4,10 @@ PC優先の静的Webアプリ。公開URL: https://paprika75.github.io/tradingvi
 
 ## 実装した判断フロー
 
-Market Health → Institutional Focus → Theme Translation → New Entry Opportunities / Active Theme Health → Theme Landscape → Theme Rotation。
+Market Health → Institutional Focus → Theme Translation → New Entry Opportunities / Active Theme Health → Theme Landscape → Theme Leaders → Setups → Theme Rotation。
 
 ダークUI、US / Japan、Daily / Weekly、過去評価日切替、検索・フィルタ・並び替え、テーマ詳細、Leader Top 5、VCP / CWH / Base Breakout / Pullback・Retest、TradingViewリンク、順位Heatmap、選択テーマのみの折れ線、Market Driver History、新規テーマ候補を実装。
+トップ画面にはTheme LeadersとSetupsを独立表示。Leaderはテーマ内Top 3、SetupはEntry候補 / Readyすべて / 全Setup / Extendedで絞り込み。2セクションの対象テーマは連動し、`theme`・`setups`クエリで復元。
 保有監視の選択は市場別のlocalStorageに保存。公開データにユーザーのポジションを含めない。
 
 ## データの状態
@@ -48,7 +49,7 @@ Market Healthカテゴリ値やRS・Stageの本番用正規化/検出は未実�
 
 ## 時点・更新状態
 
-URL例: `?market=us&period=daily&date=2026-10-01`、`theme.html?id=us-6&market=us&period=daily&date=2026-10-01`。従来の大文字US / JPにも対応。
+URL例: `?market=us&period=daily&date=2026-10-01&theme=all&setups=candidate`、`theme.html?id=us-6&market=us&period=daily&date=2026-10-01`。従来の大文字US / JPにも対応。
 選択日以前のDaily / Weekly・AIファイルを使い、未来の評価を混ぜない。ランキング差分は保存済みの前回評価から計算。履歴ファイルを読み込めない場合はHeatmapの—と折れ線の切断で表現。
 MockはMOCK DATA、過去はARCHIVE。評価の読込失敗で過去データを使うとSTALE DATAと理由・最終成功日を表示。Live更新予定を超過した場合もSTALE。IBD Referenceは未取得、Exposure・DIVERGENCEは未判定。
 
@@ -83,3 +84,14 @@ PC1280–1440px基準。横幅の多いテーブルは独立スクロール。�
 2026-10-02 JST、GitHub Pages上でUS / Japan、Daily / Weekly、過去日付、検索・0件、Entryフィルタ、並び替え、監視テーマの端末内保存と解除、テーマ詳細、TradingViewリンク先、候補ダイアログ、最大4テーマの折れ線、AI判断履歴、評価設定を確認。1280px / 1440pxの実際のiframe内で、ページ全体・主要グリッド・カードに意図しない横はみ出しがないことを確認。多列テーブルは独立スクロール。検証ページは`qa.html`。
 
 配信時にCSSとES modulesの依存を内容ハッシュでバージョン付けし、古いキャッシュが混在しにくい構成にした。過去評価は保存された設定版を使い、現在の設定変更で判定を再計算しない。
+
+
+## 2026-10-06 引継ぎ確認と補完
+
+開始時は `main` / `eb68a4d51734b9eca554d12901012e4312b88ed3`、取得した作業ツリーに未コミット変更なし。前回の作業領域に残っていたv1成果物よりGitHub上のv2が新しいため、v2を維持して補完した。停止時点の未保存編集の有無は確認できない。
+
+既存のMarket Health、Institutional Focus、Translation、Opportunity、Active Health、Landscape、履歴・詳細・端末内監視保存を維持。詳細ページだけにあったLeader / Setupをトップ画面にも追加し、8つの主要セクションと追加のRotationをそろえた。過去スナップショット、AI文章、評価設定は変更していない。
+
+トップ画面のSetup候補は、保存済みテーマ評価のEmerging / Actionableに加え、銘柄のStage 2・Ready・有効なEntry / Stop・非Extendedを必要条件にする。銘柄の価格とEntryから乖離を計算し、未通過の条件を併記する。Entry候補が0件でも全Setupへ切り替えて形成中の候補を確認できる。Weekly表示ではその週の保存水準を表示する。
+
+この追加フィルタは監視候補を狭めるもので、過去のテーマスコアや評価設定の再計算は行わない。履歴・実データ・AI解釈の分離構造は既存実装を使用する。本番データ、自動更新、出典付きAI生成、スマホ専用UIは引き続き次段階。

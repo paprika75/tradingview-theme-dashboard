@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {DataRepository} from '../lib/data.mjs';
-import {weighted,opportunity,activeHealth,confirmation,atOrBefore,dataStatus,marketTrend} from '../lib/logic.mjs';
+import {weighted,opportunity,activeHealth,confirmation,atOrBefore,dataStatus,marketTrend,researchStocks} from '../lib/logic.mjs';
 import * as V from '../lib/views.mjs';
 const root=new URL('../',import.meta.url);
 const fixture=async path=>JSON.parse(await readFile(new URL(path,root),'utf8'));
@@ -24,3 +24,32 @@ test('all page views render and escape external strings; rank chart breaks on mi
 test("default fetch preserves native receiver",async()=>{const old=globalThis.fetch;try{globalThis.fetch=function(path){assert.ok(!(this instanceof DataRepository));return fetcher(path);};assert.equal((await new DataRepository().load()).router.mode,"mock");}finally{globalThis.fetch=old;}});
 
 test("historical views use the saved scoring version after configuration changes",async()=>{const repo=await make();repo.config={...repo.config,version:"future",opportunity:{weeklyStrength:1}};const ctx=await repo.context("daily","2026-09-21","US");assert.equal(ctx.config.version,"2.0.0-prototype");assert.equal(ctx.config.opportunity.dailyAcceleration,.2);});
+
+
+test('stock entry gates exclude non Stage 2, extended, invalid levels and blocked themes',()=>{
+ const theme={...structuredClone(base),id:'test',stocks:[{symbol:'NASDAQ:TEST',quantitative:{price:100,entry:100,stop:95,stage:'Stage 2',setup:'VCP',setupReady:true,extensionPct:0},scores:{leader:90}}]};
+ const ctx={rows:[theme],health:75,config};
+ assert.equal(researchStocks(ctx)[0].eligible,true);
+ theme.stocks[0].quantitative.stage='Stage 1';assert.equal(researchStocks(ctx)[0].eligible,false);
+ theme.stocks[0].quantitative.stage='Stage 2';theme.stocks[0].quantitative.price=120;
+ assert.equal(researchStocks(ctx)[0].extended,true);assert.equal(researchStocks(ctx)[0].eligible,false);
+ theme.stocks[0].quantitative.price=100;theme.stocks[0].quantitative.entry=null;
+ assert.equal(researchStocks(ctx)[0].risk,null);assert.equal(researchStocks(ctx)[0].eligible,false);
+ theme.stocks[0].quantitative.entry=100;ctx.health=40;assert.equal(researchStocks(ctx)[0].gates.theme,false);
+});
+
+test('overview research follows market and snapshot, filters themes, and retains blocked setups',async()=>{
+ const repo=await make();
+ for(const market of ['US','JP'])for(const period of ['daily','weekly']){
+  const ctx=await repo.context(period,repo.manifest[period].at(-1).key,market);
+  const state={market,period,key:ctx.entry.key,researchTheme:ctx.rows[0].id,setupFilter:'all'};
+  const records=researchStocks(ctx,state.researchTheme);
+  assert.ok(records.every(r=>r.theme.id===state.researchTheme));
+  assert.equal(V.leaderRows(ctx,state).count,Math.min(3,ctx.rows[0].stocks.length));
+  assert.equal(V.setupRows(ctx,state).count,records.filter(r=>r.stock.quantitative.setup).length);
+  assert.ok(V.themeLeaders(ctx,state).includes('id="theme-leaders"'));
+  assert.ok(V.setups(ctx,state).includes('id="setups"'));
+  state.setupFilter='candidate';assert.equal(V.setupRows(ctx,state).count,records.filter(r=>r.stock.quantitative.setup&&r.eligible).length);
+  state.researchTheme='missing';assert.equal(V.setupRows(ctx,state).count,0);
+ }
+});

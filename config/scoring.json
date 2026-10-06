@@ -1,10 +1,60 @@
 {
-  "version":"2.0.0-prototype",
-  "marketHealth":{"trend":0.30,"institutionalAction":0.20,"breadth":0.20,"leadership":0.20,"breakoutQuality":0.10},
-  "daily":{"momentum":0.40,"breadth":0.30,"participation":0.15,"leaderQuality":0.15},
-  "weekly":{"relativeStrength":0.35,"trendBreadth":0.30,"trendQuality":0.20,"actionability":0.15},
-  "leader":{"rs":0.30,"trend":0.20,"structure":0.15,"liquidity":0.10,"accumulation":0.10,"breakoutQuality":0.10,"fundamentalGrowth":0.05},
-  "opportunity":{"weeklyStrength":0.25,"dailyAcceleration":0.20,"breadth":0.15,"leaderQuality":0.15,"setupAvailability":0.15,"marketHealth":0.10},
-  "thresholds":{"marketHealthy":70,"marketWatch":50,"strongTheme":80,"emergingDaily":75,"minimumWeekly":60,"extendedPct":10,"activeShortScoreDrop":8,"activeBreadthDrop":10,"activeMediumScoreDrop":12,"failedBreakoutRate":0.40},
-  "note":"初期ルール。Macro/Institutional alignmentはAI由来として総合定量点に加算せず別表示。重み変更時はversion更新、新しい評価のみ計算する。過去スナップショットを再計算しない。"
+  "version": "3.1.0-daily-theme-v1",
+  "marketHealth": {
+    "trend": 0.4,
+    "institutionalAction": 0.2,
+    "breadth": 0.2,
+    "leadership": 0.2
+  },
+  "daily": {
+    "relativeStrengthShort": 0.35,
+    "breadth": 0.3,
+    "participation": 0.15,
+    "leaderQuality": 0.15,
+    "concentrationQuality": 0.05
+  },
+  "weekly": {
+    "relativeStrength": 0.35,
+    "trendBreadth": 0.3,
+    "trendQuality": 0.2,
+    "actionability": 0.15
+  },
+  "leader": {
+    "rs": 0.35,
+    "trend": 0.25,
+    "structure": 0.15,
+    "liquidity": 0.1,
+    "accumulation": 0.15
+  },
+  "opportunity": {
+    "weeklyStrength": 0.25,
+    "dailyAcceleration": 0.2,
+    "breadth": 0.15,
+    "leaderQuality": 0.15,
+    "setupAvailability": 0.15,
+    "marketHealth": 0.1
+  },
+  "thresholds": {
+    "marketHealthy": 70,
+    "marketWatch": 50,
+    "strongTheme": 80,
+    "improvingTheme": 65,
+    "neutralTheme": 45,
+    "weakeningTheme": 30,
+    "emergingDaily": 75,
+    "minimumWeekly": 60,
+    "extendedPct": 10,
+    "activeShortScoreDrop": 8,
+    "activeBreadthDrop": 10,
+    "activeMediumScoreDrop": 12,
+    "failedBreakoutRate": 0.4
+  },
+  "dailyDefinition": {
+    "relativeStrengthShort": "50% 1D + 50% 5D benchmark-relative return, then percentile-ranked across rank-eligible themes",
+    "breadth": "50% advancing-member ratio + 50% members above 20DMA",
+    "participation": "share of members with positive 1D return and RVOL >= 1.0",
+    "leaderQuality": "top constituent Leader Score",
+    "concentrationQuality": "normalized inverse HHI of positive 5D benchmark-relative returns; single-winner themes score 0"
+  },
+  "note": "Daily v1.0 fixed rule: short benchmark-relative strength 35 / breadth 30 / volume participation 15 / leader 15 / concentration quality 5. Weekly and Leader logic unchanged from 3.0.0-observed-technicals. Historical snapshots are never recomputed. US short benchmark uses S&P 500; Japan short benchmark prefers TOPIX with Nikkei 225 fallback when TOPIX is unavailable. No validation of investment effectiveness."
 }

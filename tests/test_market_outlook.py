@@ -1,8 +1,10 @@
 import unittest, json, sys, copy, tempfile
 from pathlib import Path
 from datetime import date, timedelta
+from unittest.mock import patch
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 from build_market_outlook import evaluate_index, aggregate, save_append_only
+import build_market_outlook as builder
 ROOT=Path(__file__).resolve().parents[1]
 CONFIG=json.loads((ROOT/'config/market-outlook.json').read_text())
 SPEC={'symbol':'TEST:INDEX','name':'Test index'}
@@ -94,5 +96,23 @@ class Outlook(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             p=Path(folder)/'saved.json';save_append_only(p,{'score':1});save_append_only(p,{'score':1})
             with self.assertRaises(ValueError):save_append_only(p,{'score':2})
+
+    def test_new_collection_appends_without_recomputing_prior_outlook(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);(root/'config').mkdir();(root/'data/live').mkdir(parents=True)
+            (root/'config/market-outlook.json').write_text(json.dumps(CONFIG))
+            manifest={'daily':[{'asOf':'2026-10-05'}],'weekly':[]}
+            path=root/'data/live/latest.json';path.write_text(json.dumps(manifest))
+            input_path=root/'input.json'
+            source={'source':'test','fetchedAt':'2026-10-06T05:00:00Z','documents':{}}
+            input_path.write_text(json.dumps(source))
+            with patch.object(builder,'ROOT',root):
+                builder.build(input_path)
+                manifest=json.loads(path.read_text());old=root/'data'/manifest['marketOutlook'][0]['path'];before=old.read_bytes()
+                manifest['daily'].append({'asOf':'2026-10-06'});path.write_text(json.dumps(manifest))
+                source['fetchedAt']='2026-10-07T05:00:00Z';input_path.write_text(json.dumps(source))
+                builder.build(input_path)
+                self.assertEqual(old.read_bytes(),before)
+                self.assertEqual(len(json.loads(path.read_text())['marketOutlook']),2)
 
 if __name__=='__main__':unittest.main()

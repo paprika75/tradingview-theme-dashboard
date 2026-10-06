@@ -125,6 +125,15 @@ def build(input_path):
     dates = sorted({e['asOf'] for p in ['daily','weekly'] for e in manifest[p]})
     entries = []
     for date in dates:
+        previous = next((e for e in manifest.get('marketOutlook',[]) if e['asOf']==date),None)
+        if previous:
+            saved=json.loads((ROOT/'data'/previous['path']).read_text())
+            if saved['mode']!='live' or saved['asOf']!=date or saved['evaluationVersion']!=previous['evaluationVersion']:
+                raise ValueError('Saved outlook manifest mismatch')
+            if saved['evaluationVersion']==config['version'] and saved['rules']!=config:
+                raise ValueError('Change the outlook version before changing its rules')
+            entries.append(previous)
+            continue
         markets = {}
         for market,specs in config['indices'].items():
             indices = [evaluate_index(valid_bars(source['documents'].get(spec['symbol'],{}),market,fetched,spec['symbol']),date,spec,config) for spec in specs]

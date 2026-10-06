@@ -23,8 +23,9 @@ jobs:
           node-version: 22
       - name: Validate data and decision logic
         run: |
-          node --test tests/v2.test.mjs
+          node --test tests/*.test.mjs
           python tests/validate_data.py
+          python tests/test_live.py
       - uses: actions/configure-pages@v5
       - name: Stage static files
         run: python scripts/stage_static.py

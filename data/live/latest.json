@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 2,
+  "mode": "live",
+  "daily": [
+    {
+      "key": "2026-10-05",
+      "asOf": "2026-10-05",
+      "path": "live/daily/2026-10-05.json",
+      "rawPath": "raw/live/daily-2026-10-05.json",
+      "analysisPath": null,
+      "provenance": "observed-technical-snapshot"
+    }
+  ],
+  "weekly": [
+    {
+      "key": "2026-W40",
+      "asOf": "2026-10-02",
+      "path": "live/weekly/2026-W40.json",
+      "rawPath": "raw/live/weekly-2026-W40.json",
+      "analysisPath": null,
+      "provenance": "retrospective-quantitative-import"
+    }
+  ],
+  "lastSuccessfulUpdate": "2026-10-06T05:07:15.642Z",
+  "expectedNextUpdate": "2026-10-07T17:07:15.642000+00:00",
+  "sourceNotice": "Delayed OHLCV, split adjusted only; daily session close +30 minutes; no pre/post market. No dividend total return.",
+  "notes": [
+    "US / JP common completed session date",
+    "RS percentile is within current watchlist universe, not IBD",
+    "Weekly first import is retrospective quantitative, not prior saved prediction",
+    "Manual connector collection; scheduled collection not configured"
+  ]
+}

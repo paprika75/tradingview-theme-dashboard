@@ -1,0 +1,54 @@
+{
+  "version": "3.0.0-observed-technicals",
+  "marketHealth": {
+    "trend": 0.4,
+    "institutionalAction": 0.2,
+    "breadth": 0.2,
+    "leadership": 0.2
+  },
+  "daily": {
+    "momentum": 0.4,
+    "breadth": 0.3,
+    "participation": 0.15,
+    "leaderQuality": 0.15
+  },
+  "weekly": {
+    "relativeStrength": 0.35,
+    "trendBreadth": 0.3,
+    "trendQuality": 0.2,
+    "actionability": 0.15
+  },
+  "leader": {
+    "rs": 0.35,
+    "trend": 0.25,
+    "structure": 0.15,
+    "liquidity": 0.1,
+    "accumulation": 0.15
+  },
+  "opportunity": {
+    "weeklyStrength": 0.25,
+    "dailyAcceleration": 0.2,
+    "breadth": 0.15,
+    "leaderQuality": 0.15,
+    "setupAvailability": 0.15,
+    "marketHealth": 0.1
+  },
+  "thresholds": {
+    "marketHealthy": 70,
+    "marketWatch": 50,
+    "strongTheme": 80,
+    "emergingDaily": 75,
+    "minimumWeekly": 60,
+    "extendedPct": 10,
+    "activeShortScoreDrop": 8,
+    "activeBreadthDrop": 10,
+    "activeMediumScoreDrop": 12,
+    "failedBreakoutRate": 0.4
+  },
+  "note": "Observed technical beta. RS is within current theme universe, benchmark-relative 40/20/20/20 quarter-weighted returns. Stage 2 is a Trend Template proxy. Breakout quality / fundamentals / AI are unavailable. Japan has no benchmark volume: explicitly separate market-health weighting. Base/Pullback are rules-based candidates requiring manual review. Coverage >=80%, >=2 qualified members for theme rank. No validation of investment effectiveness.",
+  "marketHealthWithoutVolume": {
+    "trend": 0.5,
+    "breadth": 0.25,
+    "leadership": 0.25
+  }
+}

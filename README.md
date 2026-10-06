@@ -101,3 +101,31 @@ PC1280–1440px基準。横幅の多いテーブルは独立スクロール。�
 2026-10-06 JST、Nodeテスト14件・Pythonアーカイブ検証2件が成功。GitHub ActionsのテストとPages配信も成功。公開画面で8主要セクション、Leader / Setupのテーマ選択連動、全Setup / Entry候補切替、URLによる再読込復元、LeaderからSetupへの遷移、0件表示、Japan / Weekly / 過去日付、テーマ詳細、監視選択の保存・解除、検索0件、順位チャートを確認した。
 
 公開qa.htmlの1280px / 1440px iframeでworkspaceと全主要パネルの境界を確認し、横はみ出しなし。多列テーブルはパネル内でスクロールする。実データでの投資判断ロジックの有効性は未検証。
+
+
+## Observed Technicals v3 — 2026-10-06
+
+既存Demoを保持し、画面のObserved / Demo切替を追加。ObservedはTradingView MCPで取得した分割調整済み確定日足を使用する。初回Dailyは2026-10-05、Weeklyは2026-10-02。取得スナップショットは `observations/2026-10-06/ohlcv.json` に保存し、画面では集計済みJSONだけを読む。日米共通の確定日、株式は引け後30分、FX等の夜間開始セッションとBTCのUTC24時間足を区別して未確定足を除外する。
+
+21EMA・50/150/200SMA・確定週40SMA、リターン・RVOL・52週高安値を算出。RSは指数比リターン（63/126/189/252営業日、40/20/20/20重み）を現時点の監視銘柄群内で百分位化する。IBD RS Ratingや全市場順位ではない。Stage 2はTrend Templateの代理判定で、40週SMAは参考表示。
+
+Breadthは監視銘柄群内。2銘柄以上かつ必要な履歴を持つ有効構成80%以上のテーマだけに順位を付ける。価格未取得・IPO等の履歴不足・異なる市場は欠損理由と有効構成率を表示する。日本株の売買代金は円、米国株はドルで別の流動性基準を使う。配当込み総収益・為替換算は行わない。
+
+v3のウェイトは `config/versions/3.0.0-observed-technicals.json`。財務・Breakout Qualityを0点で代用せず、計算対象を明示した技術評価にした。日本指数の出来高が未取得のためMarket Healthは別重みを明示。Market Healthの需給は日足価格・出来高の代理指標で、機関投資家の実注文を示すものではない。
+
+Base / Pullbackは高安値・MA・RVOLによるルール候補。ReadyはStage 2・形成条件・Entry/Stopリスク8%以内・価格位置・出来高の条件で選別。VCP/CWHの確定検出は未実装。価格水準の算出と買い推奨を区別し、手動チャート確認を必要とする。ObservedではAI・Macro翻訳・新テーマ発見は未接続と表示し、Mock文章を混ぜない。監視テーマの端末内選択は引き継ぐ。
+
+### 更新経路
+
+TradingView MCPの `tv_get_ohlcv` で取得した `{source,fetchedAt,documents:{"EXCHANGE:TICKER":tool_result}}` を新しい観測日フォルダへ保存し、以下を実行する。GitHub Pages自身から認証済みTradingViewへ接続することはない。
+
+```bash
+python scripts/build_live.py --input observations/YYYY-MM-DD/ohlcv.json --activate
+node --test tests/*.test.mjs
+python tests/test_live.py
+python tests/validate_data.py
+```
+
+既存の日次・週次スナップショットと異なる内容の上書きは拒否する。初回週次は今回取得した実足からの遡及計算であり、当時保存した判断ではない。過去AI履歴は作成しない。過去の現在カタログを使う計算はバックテストではない。自動収集・スケジュールはまだ未接続。最終取得から36時間超でSTALEを表示する。
+
+次はデータ取得の継続運用、出典付きの日付別AI解釈、VCP/CWHのチャート確認フロー・検証、スマホUIの順。

@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 2,
+  "mode": "mock",
+  "manifestPath": "mock/latest.json",
+  "liveManifestPath": "live/latest.json",
+  "version": "2.0.0"
+}

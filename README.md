@@ -1,6 +1,6 @@
 # Theme Atlas — TradingViewテーマ分析ダッシュボード
 
-TradingViewの市場・テーマ・個別銘柄データを整理し、**市場環境 → テーマ → Leader → Pre-Setup / Setup** の順で投資候補を確認するための開発中ダッシュボード。
+TradingViewの市場・テーマ・個別銘柄データを整理し、**市場環境 → テーマ → Leader → Pre-Setup / Setup → Post-Breakout** の順で投資候補を確認するための開発中ダッシュボード。
 
 公開URL: https://paprika75.github.io/tradingview-theme-dashboard/
 
@@ -38,18 +38,49 @@ Market Outlook
 → Theme Landscape
 → Theme Leaders
 → Pre-Setup / Setups
+→ Post-Breakout Lifecycle
 → Theme Rotation
 ```
 
 ### 3. Swing Setup
 
-採用するSetupは3種類だけ。
+現時点で正式採用するSetup Typeは3種類。
 
 1. **VCP**
 2. **Cup With Handle (CWH)**
 3. **Base Breakout**
 
 GenericなNew High Breakoutは独立カテゴリにしない。
+
+#### Setup Type と Lifecycle を分離する
+
+`setup_type` は「どのチャート型から始まったか」を表す起点情報で、ブレイク後も保持する。  
+`lifecycle` は「現在どの状態にあるか」を表し、価格構造に応じて更新する。
+
+```text
+SETUP
+→ BREAKOUT
+→ EXTENDED / PULLBACK / RETEST
+→ 3WT / TIGHT / ASCENDING_BASE
+→ FAILED_BREAKOUT
+```
+
+- **SETUP**: Pivot未突破。正式Setupリストで監視
+- **BREAKOUT**: Pivot突破直後
+- **EXTENDED**: Pivotから上昇しすぎて追わない状態
+- **PULLBACK**: 10EMA / 21EMA等への押し
+- **RETEST**: 元Pivot近辺の再テスト
+- **3WT**: Three Weeks Tight
+- **TIGHT**: 高値圏での値幅収縮
+- **ASCENDING_BASE**: 上昇トレンド中の新Base形成
+- **FAILED_BREAKOUT**: 元Pivot・主要支持を割りブレイク仮説が崩れた状態
+
+TradingViewでは役割を分ける。
+
+- `🇺🇸セットアップ` / `🇯🇵セットアップ`: **setup_type軸**。原則 lifecycle=`SETUP`
+- `❤️ブレイクアウト` / `💙ブレイクアウト`: **lifecycle軸**。元setup_typeはTheme Atlas / GitHub側に保持
+
+過去snapshotに元setup_typeが保存されていない場合は推測で埋めず、未判定として扱う。
 
 ### 4. 一次スクリーニング
 
@@ -107,7 +138,7 @@ REVIEW | TICKER | Pivot PRICE
 **REVIEW発火は自動Buyではない。**  
 発火後にSetup構造、出来高、Gap、Stop、Risk、市場環境を再評価する。
 
-### 7. 正式Setup
+### 7. 正式Setup / Post-Breakout
 
 Pre-Setupからチャート確認後、VCP / CWH / Base Breakoutに分類して正式Setupへ昇格する。
 
@@ -121,6 +152,8 @@ Setup構造
 → Entry-to-Stop Risk
 → Extended判定
 ```
+
+Pivot突破後は元の `setup_type` を変えず、`lifecycle` のみを `BREAKOUT` 以降へ更新する。
 
 ---
 
@@ -136,7 +169,7 @@ Setup構造
 
 - [#4 RS Rank proxyを本番用Universeで計算](https://github.com/paprika75/tradingview-theme-dashboard/issues/4)
 - [#5 Observedデータ更新フローを定期運用化](https://github.com/paprika75/tradingview-theme-dashboard/issues/5)
-- [#6 DashboardにPre-Setup / Setup監視状態を統合](https://github.com/paprika75/tradingview-theme-dashboard/issues/6)
+- [#6 DashboardにPre-Setup / Setup / Post-Breakout Lifecycleを統合](https://github.com/paprika75/tradingview-theme-dashboard/issues/6)
 - [#7 日本市場Market Outlookの出来高データ源を決定](https://github.com/paprika75/tradingview-theme-dashboard/issues/7)
 
 ### P2 — 精度向上
@@ -157,6 +190,7 @@ Setup構造
 - Theme Landscape / Opportunity / Active Health
 - Theme Leaders
 - Setup候補表示
+- Setup Type / Lifecycleの分離表示とLifecycleフィルタ
 - TradingView OHLCVを使うObserved評価
 - TradingView Watchlistの読み書き
 - TradingView価格アラート作成
@@ -169,6 +203,7 @@ Setup構造
 - TradingView標準Stock Screenerの週次実行
 - 一次Watchlistへの結果投入
 - VCP / CWH / Base Breakoutの最終チャート確認
+- Breakout後のLifecycle再判定
 - TradingView MCP認証を必要とするObservedデータ取得
 
 ---
@@ -181,6 +216,7 @@ Setup構造
 - Mock / DemoとObservedを混在させない
 - 市場環境と監視銘柄群の評価を混同しない
 - 独自指標をIBD公式指標として表現しない
+- 元setup_typeが保存されていない過去データを推測で補完しない
 
 ---
 
@@ -188,6 +224,7 @@ Setup構造
 
 ```text
 app.js                    page / URL / local state
+setup-lifecycle-ui.js     setup_type / lifecycle互換表示・filter
 lib/data.mjs              data loading / point-in-time join / status
 lib/logic.mjs             quantitative logic
 lib/views.mjs             shared rendering

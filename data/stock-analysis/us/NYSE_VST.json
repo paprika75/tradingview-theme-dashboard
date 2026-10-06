@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "symbol": "NYSE:VST",
+  "name": "Vistra Corp.",
+  "market": "US",
+  "theme": "データセンター電力・冷却",
+  "analyses": [
+    {
+      "analysisDate": "2026-10-07",
+      "marketDataAsOf": "2026-10-06",
+      "generatedAt": "2026-10-07T04:01:00+09:00",
+      "status": "FORMING",
+      "stage": "Stage 2 candidate",
+      "setup": "Base / VCP forming",
+      "price": 159.39,
+      "pivot": {
+        "low": 169.8,
+        "high": 171.4,
+        "label": "中期抵抗帯"
+      },
+      "distanceToPivotPct": 6.5,
+      "entryReadiness": 62,
+      "structuralStop": null,
+      "summary": "直近の短期レンジは大商いで上抜けたが、169.8〜171.4ドルの中期抵抗が残る。現時点では本命Pivot突破ではなく、Base右側形成中またはEarly Entry後の状態として監視する。",
+      "idealPath": [
+        "160〜170ドル帯で持ち合い、上昇後の値幅を縮小させる",
+        "収縮局面で出来高が減少し、売り圧力の低下を確認する",
+        "安値を切り上げながら171ドル前後を明確なPivotとして固定する",
+        "Pivot突破時に出来高が再拡大し、RSも高値方向へ進む"
+      ],
+      "confirmation": [
+        "170ドル近辺で安値切り上げ",
+        "日足レンジの縮小",
+        "収縮時の出来高Dry-up",
+        "169.8〜171.4ドル突破時の出来高増加",
+        "データセンター電力テーマのBreadth維持"
+      ],
+      "invalidation": [
+        "150ドル台前半を明確に割り、右側形成が崩れる",
+        "戻り局面で出来高が細り、170ドル近辺で繰り返し強く売られる",
+        "主要移動平均の方向が悪化し、Stage 2候補としての前提が崩れる",
+        "データセンター電力テーマ全体のBreadthが明確に悪化する"
+      ],
+      "action": {
+        "code": "WAIT_FOR_CONTRACTION",
+        "label": "収縮待ち",
+        "detail": "159ドル台から追わず、160〜170ドル帯でのBase/VCP完成を待つ。171ドル前後を本命Pivot候補として監視する。"
+      },
+      "source": {
+        "label": "TradingView delayed OHLCV",
+        "note": "2026-10-06米国通常取引までの遅延日足・週足を基に評価。"
+      },
+      "changeReason": "初回保存分析"
+    }
+  ]
+}

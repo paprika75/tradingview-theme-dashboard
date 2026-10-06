@@ -8,7 +8,7 @@ from zoneinfo import ZoneInfo
 from decimal import Decimal, ROUND_HALF_UP
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = '3.0.0-observed-technicals'
+VERSION = '3.1.0-daily-theme-v1'
 MIN_BARS = 253
 
 def finite(v): return isinstance(v, (int, float)) and not isinstance(v, bool) and math.isfinite(v)
@@ -25,6 +25,19 @@ def ema(values, n):
     result=mean(values[:n]); alpha=2/(n+1)
     for v in values[n:]: result=v*alpha+result*(1-alpha)
     return result
+def relative_to_benchmark(theme_return, benchmark_return):
+    if not finite(theme_return) or not finite(benchmark_return): return None
+    denom=1+benchmark_return/100
+    if denom<=0:return None
+    return 100*((1+theme_return/100)/denom-1)
+def concentration_quality(values):
+    gains=[v for v in values if finite(v) and v>0]
+    if len(gains)<2:return 0.0
+    total=sum(gains)
+    if total<=0:return 0.0
+    shares=[v/total for v in gains]
+    hhi=sum(s*s for s in shares); floor=1/len(shares)
+    return rnd(clamp(100*(1-hhi)/(1-floor)),1)
 
 def bar_date(bar, market):
     return datetime.fromtimestamp(bar['t'], timezone.utc).astimezone(ZoneInfo('Asia/Tokyo' if market=='JP' else 'America/New_York')).date()
@@ -70,12 +83,13 @@ def metrics(bars, benchmark, asof):
     if not b: return None
     prices=[x['c'] for x in b]; p=prices[-1]; last=b[-1]; current=last['date']==asof
     q={'price':p,'asOf':last['date'],'bars':len(b),'current':current,'source':'TradingView / split-adjusted OHLCV'}
-    for name,n in [('return1D',1),('return1W',5),('return1M',21)]: q[name]=rnd(100*(p/prices[-n-1]-1)) if len(b)>n else None
+    for name,n in [('return1D',1),('return5D',5),('return1W',5),('return1M',21)]: q[name]=rnd(100*(p/prices[-n-1]-1)) if len(b)>n else None
     day=datetime.fromisoformat(asof).date()
     if day.weekday()==4:
         week_start=(day-timedelta(days=day.weekday())).isoformat()
         previous_week=[x for x in b if x['date']<week_start]
         q['return1W']=rnd(100*(p/previous_week[-1]['c']-1)) if previous_week else None
+    q['ma20']=rnd(mean(prices[-20:])) if len(b)>=20 else None
     for n in [21,50,150,200]:
         q['ma'+str(n)]=rnd(mean(prices[-n:])) if len(b)>=n else None
         prev=mean(prices[-n-5:-5]) if len(b)>=n+5 else None
@@ -86,6 +100,7 @@ def metrics(bars, benchmark, asof):
     q['turnover']=rnd(p*last['v']) if finite(last.get('v')) else None
     q['dollarVolume']=q['turnover'] if benchmark[0].get('market')=='US' else None
     q['currency']='JPY' if benchmark[0].get('market')=='JP' else 'USD'
+    q['above20']=p>q['ma20'] if finite(q['ma20']) else None
     q['above50']=p>q['ma50'] if finite(q['ma50']) else None
     q['above200']=p>q['ma200'] if finite(q['ma200']) else None
     q['high52']=max(x['h'] for x in b[-252:]) if len(b)>=252 else None
@@ -144,6 +159,8 @@ def build(input_path, activate=False):
         if not allbars[symbol]:errors[symbol]=errors.get(symbol,doc.get('error','No completed bars'))
     benchmarks={'US':allbars.get('SP:SPX',[]),'JP':allbars.get('TVC:NI225',[])}
     if not all(benchmarks.values()):raise ValueError('Both market benchmarks are required')
+    short_benchmarks={'US':benchmarks['US'],'JP':allbars.get('TSE:TOPIX',[]) or benchmarks['JP']}
+    short_benchmark_symbols={'US':'SP:SPX','JP':'TSE:TOPIX' if allbars.get('TSE:TOPIX') else 'TVC:NI225'}
     for m in benchmarks:
         for b in benchmarks[m]:b['market']=m
     common_dates=sorted(set(b['date'] for b in benchmarks['US'])&set(b['date'] for b in benchmarks['JP']))
@@ -162,6 +179,9 @@ def build(input_path, activate=False):
             rs=percentile_map({s:q['rsRaw'] for s,q in qs.items() if q})
             for symbol,q in qs.items():
                 if not q:continue
+                symbol_bars=[b for b in allbars.get(symbol,[]) if b['date']<=target]
+                q['dailyRelative1D']=rnd(relative_return(symbol_bars,short_benchmarks[market],1))
+                q['dailyRelative5D']=rnd(relative_return(symbol_bars,short_benchmarks[market],5))
                 if weekly_eval:
                     day=datetime.fromisoformat(target).date(); monday=(day-timedelta(days=day.weekday())).isoformat()
                     previous=[b for b in allbars[symbol] if b['date']<monday]
@@ -173,9 +193,18 @@ def build(input_path, activate=False):
             for t in themes:
                 valid=[qs[s] for s in t['symbols'] if qs.get(s) and qs[s]['current'] and finite(qs[s].get('rs'))]
                 coverage=len(valid)/len(t['symbols']); eligible=len(valid)>=2 and coverage>=.8
-                stats={'above50':rnd(100*sum(q['above50'] for q in valid)/len(valid),1) if valid else None,'above200':rnd(100*sum(q['above200'] for q in valid)/len(valid),1) if valid else None,'stage2Ratio':rnd(100*sum(q['stage']=='Stage 2' for q in valid)/len(valid),1) if valid else None}
-                for key in ['return1D','return1W','return1M','relativeVolume','accumulationDays','distributionDays','rs']:
-                    stats['relativeStrength' if key=='rs' else key]=rnd(mean([q[key] for q in valid]),1)
+                rvol_valid=[q for q in valid if finite(q.get('relativeVolume'))]
+                stats={
+                    'above20':rnd(100*sum(q['above20'] for q in valid)/len(valid),1) if valid else None,
+                    'above50':rnd(100*sum(q['above50'] for q in valid)/len(valid),1) if valid else None,
+                    'above200':rnd(100*sum(q['above200'] for q in valid)/len(valid),1) if valid else None,
+                    'advancingPct':rnd(100*sum(q['return1D']>0 for q in valid)/len(valid),1) if valid else None,
+                    'volumeParticipation':rnd(100*sum(q['return1D']>0 and q['relativeVolume']>=1 for q in rvol_valid)/len(rvol_valid),1) if rvol_valid else None,
+                    'stage2Ratio':rnd(100*sum(q['stage']=='Stage 2' for q in valid)/len(valid),1) if valid else None
+                }
+                for key in ['return1D','return5D','return1W','return1M','relativeVolume','accumulationDays','distributionDays','rs','dailyRelative1D','dailyRelative5D']:
+                    label={'rs':'relativeStrength','dailyRelative1D':'benchmarkRelative1D','dailyRelative5D':'benchmarkRelative5D'}.get(key,key)
+                    stats[label]=rnd(mean([q[key] for q in valid]),1)
                 stats.update(setupCount=sum(bool(q['setup']) for q in valid),setupReady=sum(q['setupReady'] for q in valid),extensionPct=rnd(mean([q['extensionPct'] for q in valid if finite(q['extensionPct'])])),breakouts=None,failedBreakouts=None,followThroughPct=None,coveragePct=rnd(coverage*100,1),validMembers=len(valid),totalMembers=len(t['symbols']),minimumMembers=2,rankEligible=eligible)
                 stocks=[]
                 for symbol in t['symbols']:
@@ -187,10 +216,13 @@ def build(input_path, activate=False):
                     stocks.append({'symbol':symbol,'quantitative':q,'scores':{'leader':weighted(components,config['leader']) if usable else None,'components':components},'dataQuality':{'usable':bool(usable),'reason':None if usable else errors.get(symbol,'Insufficient history / stale session / unsupported exchange')}})
                 stocks.sort(key=lambda s:(-(s['scores']['leader'] if finite(s['scores']['leader']) else -1),s['symbol']))
                 result.append({**t,'category':'Observed themes','quantitative':stats,'scores':{'leaderQuality':stocks[0]['scores']['leader'] if stocks else None},'stocks':stocks})
-            momentum=percentile_map({t['id']:t['quantitative']['return1W'] for t in result if t['quantitative']['rankEligible']})
+            short_raw={t['id']:mean([t['quantitative']['benchmarkRelative1D'],t['quantitative']['benchmarkRelative5D']]) for t in result if t['quantitative']['rankEligible']}
+            short_strength=percentile_map(short_raw)
             for t in result:
-                q=t['quantitative'];q['dailyAcceleration']=momentum.get(t['id'])
-                daily={'momentum':q['dailyAcceleration'],'breadth':q['above50'],'participation':clamp(q['relativeVolume']*50) if finite(q['relativeVolume']) else None,'leaderQuality':t['scores']['leaderQuality']}
+                q=t['quantitative'];q['dailyAcceleration']=short_strength.get(t['id']);q['shortRelativeStrengthRaw']=short_raw.get(t['id'])
+                q['dailyBreadth']=rnd(mean([q['advancingPct'],q['above20']]),1) if finite(q.get('advancingPct')) and finite(q.get('above20')) else None
+                q['concentrationQuality']=concentration_quality([s['quantitative'].get('dailyRelative5D') for s in t['stocks'] if s['dataQuality']['usable']])
+                daily={'relativeStrengthShort':q['dailyAcceleration'],'breadth':q['dailyBreadth'],'participation':q['volumeParticipation'],'leaderQuality':t['scores']['leaderQuality'],'concentrationQuality':q['concentrationQuality']}
                 weekly={'relativeStrength':q['relativeStrength'],'trendBreadth':q['above200'],'trendQuality':q['stage2Ratio'],'actionability':clamp(q['setupReady']*25)}
                 t['scores'].update(daily=weighted(daily,config['daily']) if q['rankEligible'] else None,weekly=weighted(weekly,config['weekly']) if q['rankEligible'] else None,dailyComponents=daily,weeklyComponents=weekly)
             for period in ['daily','weekly']:
@@ -233,7 +265,7 @@ def build(input_path, activate=False):
             health={'trend':trend,'institutionalAction':institution,'breadth':breadth.get('above50'),'leadership':rnd(100*sum(q['stage']=='Stage 2' for q in valid)/len(valid),1) if valid else None,'breakoutQuality':None}
             # Index volume is unavailable in Japan: use a documented neutral-free three-component model.
             weights=config['marketHealth'] if finite(institution) else config['marketHealthWithoutVolume']
-            market_data={'source':cat['markets'][market]['source'],'asOf':target,'assets':asset_rows,'marketQuantitative':{'assets':asset_rows,'breadth':breadth,'leadership':{'stage2Ratio':health['leadership'],'definition':'Trend Template proxy'},'breakoutQuality':{'status':'Not implemented'}},'scores':{'marketHealth':weighted(health,weights),'marketComponents':health},'marketHealthWeights':weights,'themes':current,'ibdReference':{'available':False,'reason':'Not connected'},'dataQuality':{'errors':{s:errors.get(s,'Unsupported exchange') for s in symbols if s in errors or s.startswith('OMXSTO:')},'sourceAsOf':target,'benchmark':'SP:SPX' if market=='US' else 'TVC:NI225'}}
+            market_data={'source':cat['markets'][market]['source'],'asOf':target,'assets':asset_rows,'marketQuantitative':{'assets':asset_rows,'breadth':breadth,'leadership':{'stage2Ratio':health['leadership'],'definition':'Trend Template proxy'},'breakoutQuality':{'status':'Not implemented'}},'scores':{'marketHealth':weighted(health,weights),'marketComponents':health},'marketHealthWeights':weights,'themes':current,'ibdReference':{'available':False,'reason':'Not connected'},'dataQuality':{'errors':{s:errors.get(s,'Unsupported exchange') for s in symbols if s in errors or s.startswith('OMXSTO:')},'sourceAsOf':target,'benchmark':'SP:SPX' if market=='US' else 'TVC:NI225','dailyBenchmark':short_benchmark_symbols[market]}}
             evaluated[(market,target)]=market_data
     manifest_path=ROOT/'data/live/latest.json'
     manifest=json.loads(manifest_path.read_text()) if manifest_path.exists() else {'schemaVersion':2,'mode':'live','daily':[],'weekly':[]}
@@ -246,7 +278,7 @@ def build(input_path, activate=False):
         entry={'key':key,'asOf':target,'path':path,'rawPath':rawpath,'analysisPath':None,'provenance':data['provenance']}
         if not any(e['key']==key for e in manifest[period]):manifest[period].append(entry)
         manifest[period].sort(key=lambda e:e['asOf'])
-    manifest.update(lastSuccessfulUpdate=bundle['fetchedAt'],expectedNextUpdate=(collected_at+timedelta(hours=36)).isoformat(),sourceNotice='Delayed OHLCV, split adjusted only; daily session close +30 minutes; no pre/post market. No dividend total return.',notes=['US / JP common completed session date','RS percentile is within current watchlist universe, not IBD','Weekly first import is retrospective quantitative, not prior saved prediction','Manual connector collection; scheduled collection not configured'])
+    manifest.update(lastSuccessfulUpdate=bundle['fetchedAt'],expectedNextUpdate=(collected_at+timedelta(hours=36)).isoformat(),sourceNotice='Delayed OHLCV, split adjusted only; daily session close +30 minutes; no pre/post market. No dividend total return.',notes=['US / JP common completed session date','RS percentile is within current watchlist universe, not IBD','Daily v1 uses 1D/5D benchmark-relative strength + breadth + volume participation + leader + concentration quality','Weekly first import is retrospective quantitative, not prior saved prediction','Manual connector collection; scheduled collection not configured'])
     manifest_path.parent.mkdir(parents=True,exist_ok=True);manifest_path.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
     if activate:(ROOT/'data/latest.json').write_text(json.dumps({'schemaVersion':2,'mode':'live','manifestPath':'live/latest.json'})+'\n')
     print(json.dumps({'asOf':asof,'weeklyAsOf':weekly_date,'sourceSymbols':len(docs),'errors':errors,'markets':{m:{'themes':len(evaluated[(m,asof)]['themes']),'members':evaluated[(m,asof)]['marketQuantitative']['breadth'].get('validMembers')} for m in ['US','JP']}},ensure_ascii=False))

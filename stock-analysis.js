@@ -5,6 +5,8 @@ const esc=s=>String(s??'—').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>'
 const fmt=(v,d=2)=>Number.isFinite(v)?Number(v).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
 const tone=status=>({READY:'positive',BREAKOUT:'positive',FORMING:'warning',WATCH:'neutral',PULLBACK:'new',RETEST:'new',INVALID:'negative'}[status]||'neutral');
 const formatTimestamp=s=>s?String(s).replace('T',' ').replace('+09:00',' JST'):'—';
+const currencyMark=c=>c==='JPY'?'¥':c==='USD'?'$':c?`${c} `:'';
+const money=(v,c)=>Number.isFinite(v)?`${currencyMark(c)}${fmt(v,c==='JPY'?0:2)}`:'—';
 
 function addStyles(){
  if(document.getElementById('stock-analysis-styles'))return;
@@ -39,20 +41,21 @@ async function loadAnalysis(symbol){
  return doc;
 }
 
-function pivotLabel(p){
+function pivotLabel(p,currency){
  if(!p)return '—';
- if(Number.isFinite(p.low)&&Number.isFinite(p.high))return `$${fmt(p.low)} – $${fmt(p.high)}`;
- if(Number.isFinite(p.value))return `$${fmt(p.value)}`;
+ if(Number.isFinite(p.low)&&Number.isFinite(p.high))return `${money(p.low,currency)} – ${money(p.high,currency)}`;
+ if(Number.isFinite(p.value))return money(p.value,currency);
  return esc(p.label||'—');
 }
 
 function list(items){return `<ul>${(items||[]).map(x=>`<li>${esc(x)}</li>`).join('')||'<li>未記録</li>'}</ul>`;}
 
-function entryBody(a){
+function entryBody(a,defaultCurrency){
+ const currency=a.currency||defaultCurrency;
  return `<div class="stock-analysis-badges"><span class="stock-analysis-badge ${tone(a.status)}">${esc(a.status)}</span><span class="stock-analysis-badge">${esc(a.stage)}</span><span class="stock-analysis-badge">${esc(a.setup)}</span></div>
- <div class="stock-analysis-meta"><div><span>Analysis Date</span><b>${esc(a.analysisDate)}</b></div><div><span>Market Data As Of</span><b>${esc(a.marketDataAsOf)}</b></div><div><span>Price</span><b>${Number.isFinite(a.price)?'$'+fmt(a.price):'—'}</b></div><div><span>Pivot</span><b>${pivotLabel(a.pivot)}</b></div></div>
+ <div class="stock-analysis-meta"><div><span>Analysis Date</span><b>${esc(a.analysisDate)}</b></div><div><span>Market Data As Of</span><b>${esc(a.marketDataAsOf)}</b></div><div><span>Price</span><b>${money(a.price,currency)}</b></div><div><span>Pivot</span><b>${pivotLabel(a.pivot,currency)}</b></div></div>
  <p class="stock-analysis-summary">${esc(a.summary)}</p>
- <div class="stock-analysis-grid"><section class="stock-analysis-card"><h3>Ideal Path</h3>${list(a.idealPath)}</section><section class="stock-analysis-card"><h3>Bullish Confirmation</h3>${list(a.confirmation)}</section><section class="stock-analysis-card"><h3>Invalidation</h3>${list(a.invalidation)}</section><section class="stock-analysis-card"><h3>Levels / Readiness</h3><p>Entry Readiness: <b>${Number.isFinite(a.entryReadiness)?fmt(a.entryReadiness,0)+'/100':'—'}</b></p><p>Pivot Distance: <b>${Number.isFinite(a.distanceToPivotPct)?fmt(a.distanceToPivotPct,1)+'%':'—'}</b></p><p>Structural Stop: <b>${Number.isFinite(a.structuralStop)?'$'+fmt(a.structuralStop):'未確定'}</b></p></section></div>
+ <div class="stock-analysis-grid"><section class="stock-analysis-card"><h3>Ideal Path</h3>${list(a.idealPath)}</section><section class="stock-analysis-card"><h3>Bullish Confirmation</h3>${list(a.confirmation)}</section><section class="stock-analysis-card"><h3>Invalidation</h3>${list(a.invalidation)}</section><section class="stock-analysis-card"><h3>Levels / Readiness</h3><p>Entry Readiness: <b>${Number.isFinite(a.entryReadiness)?fmt(a.entryReadiness,0)+'/100':'—'}</b></p><p>Pivot Distance: <b>${Number.isFinite(a.distanceToPivotPct)?fmt(a.distanceToPivotPct,1)+'%':'—'}</b></p><p>Structural Stop: <b>${money(a.structuralStop,currency)}</b></p></section></div>
  <div class="stock-analysis-action"><strong>Next Action · ${esc(a.action?.label)}</strong><span>${esc(a.action?.detail)}</span></div>
  <small>生成時刻 ${esc(formatTimestamp(a.generatedAt))} · ${esc(a.source?.label||'Source未記録')}${a.changeReason?` · ${esc(a.changeReason)}`:''}</small>`;
 }
@@ -67,7 +70,7 @@ function renderDialog(symbol,doc){
   const entries=[...(doc.analyses||[])].sort((a,b)=>String(b.analysisDate).localeCompare(String(a.analysisDate))||String(b.generatedAt).localeCompare(String(a.generatedAt)));
   const latest=entries[0];
   const history=entries.slice(1);
-  dialog.innerHTML=`<div class="stock-analysis-wrap"><div class="stock-analysis-top"><div><span class="eyebrow">STOCK ANALYSIS · ${esc(doc.market)}</span><h2>${esc(doc.symbol.split(':').at(-1))} · ${esc(doc.name)}</h2><p>${esc(doc.theme||'Theme未設定')} · 保存分析 ${entries.length}件</p></div><button class="stock-analysis-close">閉じる ×</button></div>${latest?entryBody(latest):'<div class="stock-analysis-empty">分析ログが空です。</div>'}<div class="stock-analysis-links"><a data-external-chart target="_blank" rel="noopener" href="https://www.tradingview.com/chart/?symbol=${encodeURIComponent(symbol)}">TradingViewで開く ↗</a><span>ログは上書きせず追記保存</span></div><section class="stock-analysis-history"><h3>Analysis History</h3>${history.length?history.map(a=>`<details><summary><b>${esc(a.analysisDate)}</b> · ${esc(a.status)} · ${esc(a.setup)} · Data ${esc(a.marketDataAsOf)}</summary><div class="history-body">${entryBody(a)}</div></details>`).join(''):'<p class="stock-analysis-empty">初回分析のため、過去ログはまだありません。</p>'}</section></div>`;
+  dialog.innerHTML=`<div class="stock-analysis-wrap"><div class="stock-analysis-top"><div><span class="eyebrow">STOCK ANALYSIS · ${esc(doc.market)}</span><h2>${esc(doc.symbol.split(':').at(-1))} · ${esc(doc.name)}</h2><p>${esc(doc.theme||'Theme未設定')} · 保存分析 ${entries.length}件</p></div><button class="stock-analysis-close">閉じる ×</button></div>${latest?entryBody(latest,doc.currency):'<div class="stock-analysis-empty">分析ログが空です。</div>'}<div class="stock-analysis-links"><a data-external-chart target="_blank" rel="noopener" href="https://www.tradingview.com/chart/?symbol=${encodeURIComponent(symbol)}">TradingViewで開く ↗</a><span>ログは上書きせず追記保存</span></div><section class="stock-analysis-history"><h3>Analysis History</h3>${history.length?history.map(a=>`<details><summary><b>${esc(a.analysisDate)}</b> · ${esc(a.status)} · ${esc(a.setup)} · Data ${esc(a.marketDataAsOf)}</summary><div class="history-body">${entryBody(a,doc.currency)}</div></details>`).join(''):'<p class="stock-analysis-empty">初回分析のため、過去ログはまだありません。</p>'}</section></div>`;
  }
  dialog.querySelector('.stock-analysis-close')?.addEventListener('click',()=>dialog.close());
  if(!dialog.open)dialog.showModal();

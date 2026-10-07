@@ -1,0 +1,77 @@
+{
+  "version": "3.2.0-setup-lifecycle-v1",
+  "marketHealth": {
+    "trend": 0.4,
+    "institutionalAction": 0.2,
+    "breadth": 0.2,
+    "leadership": 0.2
+  },
+  "daily": {
+    "relativeStrengthShort": 0.35,
+    "breadth": 0.3,
+    "participation": 0.15,
+    "leaderQuality": 0.15,
+    "concentrationQuality": 0.05
+  },
+  "weekly": {
+    "relativeStrength": 0.35,
+    "trendBreadth": 0.3,
+    "trendQuality": 0.2,
+    "actionability": 0.15
+  },
+  "leader": {
+    "rs": 0.35,
+    "trend": 0.25,
+    "structure": 0.15,
+    "liquidity": 0.1,
+    "accumulation": 0.15
+  },
+  "opportunity": {
+    "weeklyStrength": 0.25,
+    "dailyAcceleration": 0.2,
+    "breadth": 0.15,
+    "leaderQuality": 0.15,
+    "setupAvailability": 0.15,
+    "marketHealth": 0.1
+  },
+  "thresholds": {
+    "marketHealthy": 70,
+    "marketWatch": 50,
+    "strongTheme": 80,
+    "improvingTheme": 65,
+    "neutralTheme": 45,
+    "weakeningTheme": 30,
+    "emergingDaily": 75,
+    "minimumWeekly": 60,
+    "extendedPct": 10,
+    "activeShortScoreDrop": 8,
+    "activeBreadthDrop": 10,
+    "activeMediumScoreDrop": 12,
+    "failedBreakoutRate": 0.4
+  },
+  "setupLifecycle": {
+    "version": "1.0.0",
+    "failedPivotPct": 3,
+    "retestPct": 3,
+    "pullbackEma21MinPct": -2,
+    "pullbackEma21MaxPct": 3,
+    "pullbackMaxRvol": 1.2,
+    "extendedFromEntryPct": 10,
+    "extendedFromEma21Pct": 10,
+    "tightSessions": 5,
+    "tightRangePct": 5,
+    "threeWeeksTightClosePct": 1.5,
+    "ascendingBaseWindowSessions": 60,
+    "ascendingBaseMaxBlockRangePct": 22,
+    "ascendingBaseNearHighPct": 5,
+    "policy": "Manual registry state wins. Rule logic only stores lifecycleCandidate and may supply lifecycle when no manual state exists. Every rule candidate requires chart review before being treated as confirmed."
+  },
+  "dailyDefinition": {
+    "relativeStrengthShort": "50% 1D + 50% 5D benchmark-relative return, then percentile-ranked across rank-eligible themes",
+    "breadth": "50% advancing-member ratio + 50% members above 20DMA",
+    "participation": "share of members with positive 1D return and RVOL >= 1.0",
+    "leaderQuality": "top constituent Leader Score",
+    "concentrationQuality": "normalized inverse HHI of positive 5D benchmark-relative returns; single-winner themes score 0"
+  },
+  "note": "3.2 adds point-in-time setup_type / lifecycle persistence and separate automated lifecycleCandidate rules. Historical snapshots are never recomputed. Manual TradingView chart-review state is stored in dated setup registry snapshots and takes precedence over rule candidates."
+}

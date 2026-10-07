@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-10-07",
+  "source": {
+    "type": "TradingView watchlists",
+    "setupLists": ["🇺🇸セットアップ", "🇯🇵セットアップ"],
+    "postBreakoutLists": ["❤️ブレイクアウト", "💙ブレイクアウト"],
+    "note": "Setup lists preserve chart origin. Post-breakout lists were migrated from the former pattern-based breakout sections to lifecycle sections; migrated BREAKOUT states are saved but not marked lifecycleConfirmed."
+  },
+  "symbols": {
+    "NASDAQ:NVDA": {"market":"US","setup_type":"VCP","setupConfirmed":true,"setupTypeSource":"TV_SETUP_LIST","lifecycle":"SETUP","lifecycleConfirmed":true,"lifecycleSource":"TV_SETUP_LIST"},
+    "NYSE:TSM": {"market":"US","setup_type":"VCP","setupConfirmed":true,"setupTypeSource":"TV_SETUP_LIST","lifecycle":"SETUP","lifecycleConfirmed":true,"lifecycleSource":"TV_SETUP_LIST"},
+    "NYSE:ANET": {"market":"US","setup_type":"Base Breakout","setupConfirmed":true,"setupTypeSource":"TV_SETUP_LIST","lifecycle":"SETUP","lifecycleConfirmed":true,"lifecycleSource":"TV_SETUP_LIST"},
+    "NASDAQ:TXN": {"market":"US","setup_type":"Base Breakout","setupConfirmed":true,"setupTypeSource":"TV_SETUP_LIST","lifecycle":"SETUP","lifecycleConfirmed":true,"lifecycleSource":"TV_SETUP_LIST"},
+    "NASDAQ:PANW": {"market":"US","setup_type":"Base Breakout","setupConfirmed":true,"setupTypeSource":"TV_SETUP_LIST","lifecycle":"SETUP","lifecycleConfirmed":true,"lifecycleSource":"TV_SETUP_LIST"},
+    "NASDAQ:FTNT": {"market":"US","setup_type":"Base Breakout","setupConfirmed":true,"setupTypeSource":"TV_SETUP_LIST","lifecycle":"SETUP","lifecycleConfirmed":true,"lifecycleSource":"TV_SETUP_LIST"},
+    "NYSE:COHR": {"market":"US","setup_type":"Base Breakout","setupConfirmed":true,"setupTypeSource":"TV_SETUP_LIST","lifecycle":"SETUP","lifecycleConfirmed":true,"lifecycleSource":"TV_SETUP_LIST"},
+    "NASDAQ:MXL": {"market":"US","setup_type":"Base Breakout","setupConfirmed":true,"setupTypeSource":"TV_BREAKOUT_LEGACY_ORIGIN","lifecycle":"BREAKOUT","lifecycleConfirmed":false,"lifecycleSource":"TV_LIFECYCLE_MIGRATION"},
+    "NASDAQ:CRWD": {"market":"US","setup_type":"Base Breakout","setupConfirmed":true,"setupTypeSource":"TV_BREAKOUT_LEGACY_ORIGIN","lifecycle":"BREAKOUT","lifecycleConfirmed":false,"lifecycleSource":"TV_LIFECYCLE_MIGRATION"},
+    "NYSE:GEV": {"market":"US","setup_type":"Base Breakout","setupConfirmed":true,"setupTypeSource":"TV_BREAKOUT_LEGACY_ORIGIN","lifecycle":"BREAKOUT","lifecycleConfirmed":false,"lifecycleSource":"TV_LIFECYCLE_MIGRATION"},
+    "TSE:6861": {"market":"JP","setup_type":"VCP","setupConfirmed":true,"setupTypeSource":"TV_SETUP_LIST","lifecycle":"SETUP","lifecycleConfirmed":true,"lifecycleSource":"TV_SETUP_LIST"},
+    "TSE:6324": {"market":"JP","setup_type":"Base Breakout","setupConfirmed":true,"setupTypeSource":"TV_SETUP_LIST","lifecycle":"SETUP","lifecycleConfirmed":true,"lifecycleSource":"TV_SETUP_LIST"},
+    "TSE:6777": {"market":"JP","setup_type":"Base Breakout","setupConfirmed":true,"setupTypeSource":"TV_SETUP_LIST","lifecycle":"SETUP","lifecycleConfirmed":true,"lifecycleSource":"TV_SETUP_LIST"},
+    "TSE:4704": {"market":"JP","setup_type":"Base Breakout","setupConfirmed":true,"setupTypeSource":"TV_SETUP_LIST","lifecycle":"SETUP","lifecycleConfirmed":true,"lifecycleSource":"TV_SETUP_LIST"},
+    "TSE:6525": {"market":"JP","setup_type":"VCP","setupConfirmed":true,"setupTypeSource":"TV_BREAKOUT_LEGACY_ORIGIN","lifecycle":"BREAKOUT","lifecycleConfirmed":false,"lifecycleSource":"TV_LIFECYCLE_MIGRATION"},
+    "TSE:6857": {"market":"JP","setup_type":"Base Breakout","setupConfirmed":true,"setupTypeSource":"TV_BREAKOUT_LEGACY_ORIGIN","lifecycle":"BREAKOUT","lifecycleConfirmed":false,"lifecycleSource":"TV_LIFECYCLE_MIGRATION"},
+    "TSE:7735": {"market":"JP","setup_type":"Base Breakout","setupConfirmed":true,"setupTypeSource":"TV_BREAKOUT_LEGACY_ORIGIN","lifecycle":"BREAKOUT","lifecycleConfirmed":false,"lifecycleSource":"TV_LIFECYCLE_MIGRATION"},
+    "TSE:8035": {"market":"JP","setup_type":"Base Breakout","setupConfirmed":true,"setupTypeSource":"TV_BREAKOUT_LEGACY_ORIGIN","lifecycle":"BREAKOUT","lifecycleConfirmed":false,"lifecycleSource":"TV_LIFECYCLE_MIGRATION"},
+    "TSE:6981": {"market":"JP","setup_type":"Base Breakout","setupConfirmed":true,"setupTypeSource":"TV_BREAKOUT_LEGACY_ORIGIN","lifecycle":"BREAKOUT","lifecycleConfirmed":false,"lifecycleSource":"TV_LIFECYCLE_MIGRATION"},
+    "TSE:6920": {"market":"JP","setup_type":"Base Breakout","setupConfirmed":true,"setupTypeSource":"TV_BREAKOUT_LEGACY_ORIGIN","lifecycle":"BREAKOUT","lifecycleConfirmed":false,"lifecycleSource":"TV_LIFECYCLE_MIGRATION"},
+    "TSE:6834": {"market":"JP","setup_type":"Base Breakout","setupConfirmed":true,"setupTypeSource":"TV_BREAKOUT_LEGACY_ORIGIN","lifecycle":"BREAKOUT","lifecycleConfirmed":false,"lifecycleSource":"TV_LIFECYCLE_MIGRATION"},
+    "TSE:3692": {"market":"JP","setup_type":"Base Breakout","setupConfirmed":true,"setupTypeSource":"TV_BREAKOUT_LEGACY_ORIGIN","lifecycle":"BREAKOUT","lifecycleConfirmed":false,"lifecycleSource":"TV_LIFECYCLE_MIGRATION"},
+    "TSE:4493": {"market":"JP","setup_type":"Base Breakout","setupConfirmed":true,"setupTypeSource":"TV_BREAKOUT_LEGACY_ORIGIN","lifecycle":"BREAKOUT","lifecycleConfirmed":false,"lifecycleSource":"TV_LIFECYCLE_MIGRATION"},
+    "TSE:338A": {"market":"JP","setup_type":"Base Breakout","setupConfirmed":true,"setupTypeSource":"TV_BREAKOUT_LEGACY_ORIGIN","lifecycle":"BREAKOUT","lifecycleConfirmed":false,"lifecycleSource":"TV_LIFECYCLE_MIGRATION"}
+  }
+}

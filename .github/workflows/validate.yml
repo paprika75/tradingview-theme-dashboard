@@ -1,0 +1,25 @@
+name: Validate dashboard
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate data and decision logic
+        run: |
+          node --test tests/*.test.mjs
+          python tests/validate_data.py
+          python tests/test_live.py
+          python tests/test_market_outlook.py
+          python tests/test_market_exposure.py
+          python tests/test_pre_setup.py
+          python tests/test_setup_lifecycle.py
+          python tests/test_live_setup_state.py

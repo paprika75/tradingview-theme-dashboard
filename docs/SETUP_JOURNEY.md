@@ -138,3 +138,6 @@ Overview上表のLegacy Entry / Stop / Riskは**元Setupの参考値**と明記�
 2. #2 / #6: 実際のチャート確認を新しいRegistryに保存し、新規Observedへ反映。型の定量補助と昇格/降格の運用を拡張。
 3. #3 / #6: REVIEW alertのid・Pivot版・active/fired/obsolete・イベント日付を別履歴で保存。候補や発火を自動Buyにしない。今回はalert同期を実装していない。
 4. Theme Leaderとの関係、#10の分析履歴・評価時点、#11の市場判断接続。今回はロジックを変更しない。
+
+
+日付付きRegistry保存、構造窓による水準候補、分析履歴と市場行動条件の実装は [RESEARCH_WORKFLOW.md](RESEARCH_WORKFLOW.md) を参照。実銘柄の全OHLCV取得と手動チャート確認は引き続き必要。

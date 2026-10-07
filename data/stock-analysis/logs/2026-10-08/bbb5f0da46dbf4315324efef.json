@@ -1,0 +1,3931 @@
+{
+  "schemaVersion": 2,
+  "mode": "live",
+  "analysisDate": "2026-10-08",
+  "generatedAt": "2026-10-07T18:27:36Z",
+  "universeAsOf": "2026-10-08",
+  "universeObservedAt": "2026-10-07T18:18:54Z",
+  "evaluationVersion": "1.0.0-technical-analysis-history",
+  "symbols": {
+    "NASDAQ:LAES": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 2.41,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:LAES",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "量子",
+      "id": "40d0d5bb6d5251e861790c36"
+    },
+    "NASDAQ:LITE": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "Stage 2",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 1091.67,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:LITE",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "光・CPO",
+      "id": "3f90fd75729a2d1a876d1883"
+    },
+    "NASDAQ:LUNR": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 14.29,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:LUNR",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "宇宙",
+      "id": "7ec6c55061cd1eae19971348"
+    },
+    "NASDAQ:LWLG": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 5.55,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:LWLG",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "光・CPO",
+      "id": "6c72715e9e046865190e7a9e"
+    },
+    "NASDAQ:MBOT": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 1.07,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:MBOT",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "ロボティクス",
+      "id": "efa017363e3829e0044d80d2"
+    },
+    "NASDAQ:META": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 741.9,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:META",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "大型テック",
+      "id": "826f28c86485a4b1f92819e0"
+    },
+    "NASDAQ:MPWR": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 1479.89,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:MPWR",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "パワー・アナログ半導体",
+      "id": "a4a72e60ce1288602a7aaabe"
+    },
+    "NASDAQ:MRNA": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "Stage 2",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 203.21,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:MRNA",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "バイオ",
+      "id": "d19e41f7bced55ef7a4d6ca2"
+    },
+    "NASDAQ:MRVL": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "Stage 2",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 271.25,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:MRVL",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "AIネットワーク・インターコネクト",
+      "id": "7903ca91d1a4df0c4dcb78e7"
+    },
+    "NASDAQ:MSFT": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 525.18,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:MSFT",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "大型テック",
+      "id": "52b0b5c17d90761cd8cce9c6"
+    },
+    "NASDAQ:MSTR": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 164.43,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:MSTR",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "クリプト関連",
+      "id": "f1426139d78811ee839b7887"
+    },
+    "NASDAQ:MTLS": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "Stage 2",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 8.55,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:MTLS",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "3Dプリンティング・積層造形",
+      "id": "26508fe200e189744bf17c50"
+    },
+    "NASDAQ:MU": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "Stage 2",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 1063.96,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:MU",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "メモリ・ストレージ",
+      "id": "d90159100a95b71d57c0fe1e"
+    },
+    "NASDAQ:MXL": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "Stage 2",
+      "setup": "UNASSESSED",
+      "setup_type": "Base Breakout",
+      "setupConfirmed": true,
+      "setupTypeSource": "TV_BREAKOUT_LEGACY_ORIGIN",
+      "lifecycle": "BREAKOUT",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": "TV_LIFECYCLE_MIGRATION",
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 105.49,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "突破価格・出来高・Gap・initial stopを再確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "突破価格・出来高・Gap・initial stopを再確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:MXL",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": true,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "BREAKOUT",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "BREAKOUT",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "突破価格・出来高・Gap・initial stopを再確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "RF・ワイヤレス",
+      "id": "d78a2b7ce8efec70fc537477"
+    },
+    "NASDAQ:NBIS": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "Stage 2",
+      "setup": "Pullback / Retest",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 232.57,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:NBIS",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "AIクラウド・ネオクラウド",
+      "id": "978e23100f2d7f8ec731bbf0"
+    },
+    "NASDAQ:NFLX": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 67.5,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:NFLX",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "大型テック",
+      "id": "a3c0fdefc2a2498098a17cc6"
+    },
+    "NASDAQ:NNE": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 15.51,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:NNE",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "原子力",
+      "id": "c0cc8c65e8e100c39b71665f"
+    },
+    "NASDAQ:NUAI": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 6.05,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:NUAI",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "AIデータセンター開発・新興",
+      "id": "5f69841063288fa5e3c77aee"
+    },
+    "NASDAQ:NVDA": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": "VCP",
+      "setupConfirmed": true,
+      "setupTypeSource": "TV_SETUP_LIST",
+      "lifecycle": "SETUP",
+      "lifecycleConfirmed": true,
+      "lifecycleSource": "TV_SETUP_LIST",
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 238.9,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "Standard Pivotを確認。Early / Cheatは別の抵抗帯と構造的Stopを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "Standard Pivotを確認。Early / Cheatは別の抵抗帯と構造的Stopを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:NVDA",
+        "phase": "FORMAL_SETUP",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": true,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": true
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "SETUP",
+          "confirmed": true,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "SETUP",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "Standard Pivotを確認。Early / Cheatは別の抵抗帯と構造的Stopを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "AI計算基盤・半導体",
+      "id": "4a4ac90ac54506cd5e7c415d"
+    },
+    "NASDAQ:NVTS": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 12.34,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:NVTS",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "AI計算基盤・半導体",
+      "id": "2a69ada41a6f058703094294"
+    },
+    "NASDAQ:ONDS": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 7.42,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:ONDS",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "ドローン",
+      "id": "f0aba3c28c1734537ae0a128"
+    },
+    "NASDAQ:OUST": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 44.12,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:OUST",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "ロボティクス",
+      "id": "84a454b1b0090cf61b7fa431"
+    },
+    "NASDAQ:PANW": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "Stage 2",
+      "setup": "UNASSESSED",
+      "setup_type": "Base Breakout",
+      "setupConfirmed": true,
+      "setupTypeSource": "TV_SETUP_LIST",
+      "lifecycle": "SETUP",
+      "lifecycleConfirmed": true,
+      "lifecycleSource": "TV_SETUP_LIST",
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 406.76,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "Standard Pivotを確認。Early / Cheatは別の抵抗帯と構造的Stopを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "Standard Pivotを確認。Early / Cheatは別の抵抗帯と構造的Stopを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:PANW",
+        "phase": "FORMAL_SETUP",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": true,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": true
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "SETUP",
+          "confirmed": true,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "SETUP",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "Standard Pivotを確認。Early / Cheatは別の抵抗帯と構造的Stopを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "サイバーセキュリティ",
+      "id": "b53030c3f44b3df77ce875e0"
+    },
+    "NASDAQ:PLTR": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 189.4,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:PLTR",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "AIソフト・アプリ",
+      "id": "d83613d73d461f347d56935a"
+    },
+    "NASDAQ:POET": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 7.81,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:POET",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "光・CPO",
+      "id": "0b9877b5e4eecdebaba1e50e"
+    },
+    "NASDAQ:QBTS": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 15.64,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:QBTS",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "量子",
+      "id": "d5323bf656a53d7a4a5568ed"
+    },
+    "NASDAQ:QCOM": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 180.79,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:QCOM",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "AI計算基盤・半導体",
+      "id": "823b9b7cee55a283edc21fd6"
+    },
+    "NASDAQ:QS": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 4.62,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:QS",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "蓄電池・バッテリー",
+      "id": "4f43a073554a18199383c83f"
+    },
+    "NASDAQ:QUBT": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 7.94,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:QUBT",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "量子",
+      "id": "ff1d7a7490729ccfe915295c"
+    },
+    "NASDAQ:RCAT": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 6.345,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:RCAT",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "ドローン",
+      "id": "91b1895d0775aa801b281918"
+    },
+    "NASDAQ:REGN": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 726.47,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:REGN",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "バイオ",
+      "id": "7274ca5fe171dfd4cf8734e8"
+    },
+    "NASDAQ:RGTI": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 15.15,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:RGTI",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "量子",
+      "id": "e91f974121e7be4c9eeaa1bd"
+    },
+    "NASDAQ:RKLB": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 73.02,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:RKLB",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "宇宙",
+      "id": "3d94ee48d7f5a984d88eef05"
+    },
+    "NASDAQ:RR": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 1.72,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:RR",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "ロボティクス",
+      "id": "8ca5958ea206c952cd9c244f"
+    },
+    "NASDAQ:RVMD": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "Stage 2",
+      "setup": "Base Breakout",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 207.68,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:RVMD",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "バイオ投機",
+      "id": "b91ad61c411b6d3927e4f9c3"
+    },
+    "NASDAQ:SATL": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 5.32,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:SATL",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "宇宙",
+      "id": "4c530e8f65559a362d9c94e8"
+    },
+    "NASDAQ:SERV": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 4.88,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:SERV",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "ロボティクス",
+      "id": "bf0cc1c7f06279dcdd16e556"
+    },
+    "NASDAQ:SIDU": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 1.75,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:SIDU",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "宇宙",
+      "id": "88435592704c3fb4024a5e68"
+    },
+    "NASDAQ:SITM": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "Stage 2",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 710.04,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:SITM",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "AI計算基盤・半導体",
+      "id": "74c4f106403373c9ef4b885b"
+    },
+    "NASDAQ:SLDP": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 2.3,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "NASDAQ:SLDP",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "蓄電池・バッテリー",
+      "id": "9b243c16035a589b242b1e4e"
+    }
+  }
+}

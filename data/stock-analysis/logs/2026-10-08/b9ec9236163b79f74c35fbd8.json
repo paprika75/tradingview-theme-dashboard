@@ -1,0 +1,1187 @@
+{
+  "schemaVersion": 2,
+  "mode": "live",
+  "analysisDate": "2026-10-08",
+  "generatedAt": "2026-10-07T18:27:36Z",
+  "universeAsOf": "2026-10-08",
+  "universeObservedAt": "2026-10-07T18:18:54Z",
+  "evaluationVersion": "1.0.0-technical-analysis-history",
+  "symbols": {
+    "TSE:7011": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 3871,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "TSE:7011",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "防衛",
+      "id": "ae9a418ac777cff7a0f6672c"
+    },
+    "TSE:7012": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 2354.5,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "TSE:7012",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "防衛",
+      "id": "d5eb35421ad48894fb6f4bbf"
+    },
+    "TSE:7013": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 2720,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "TSE:7013",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "防衛",
+      "id": "692c3b0683b36eb73191eef8"
+    },
+    "TSE:7735": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "Stage 2",
+      "setup": "UNASSESSED",
+      "setup_type": "Base Breakout",
+      "setupConfirmed": true,
+      "setupTypeSource": "TV_BREAKOUT_LEGACY_ORIGIN",
+      "lifecycle": "BREAKOUT",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": "TV_LIFECYCLE_MIGRATION",
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 15785,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "突破価格・出来高・Gap・initial stopを再確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "突破価格・出来高・Gap・initial stopを再確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "TSE:7735",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": true,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "BREAKOUT",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "BREAKOUT",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "突破価格・出来高・Gap・initial stopを再確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "半導体製造装置",
+      "id": "1af1fec34a4f693e8c60dfab"
+    },
+    "TSE:8035": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "Stage 2",
+      "setup": "UNASSESSED",
+      "setup_type": "Base Breakout",
+      "setupConfirmed": true,
+      "setupTypeSource": "TV_BREAKOUT_LEGACY_ORIGIN",
+      "lifecycle": "BREAKOUT",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": "TV_LIFECYCLE_MIGRATION",
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 12765,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "突破価格・出来高・Gap・initial stopを再確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "突破価格・出来高・Gap・initial stopを再確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "TSE:8035",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": true,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "BREAKOUT",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "BREAKOUT",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "突破価格・出来高・Gap・initial stopを再確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "半導体製造装置",
+      "id": "ca3ca008b3104cf5debf167d"
+    },
+    "TSE:8306": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 3615,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "TSE:8306",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "銀行",
+      "id": "6ab95b2522f42d485bbc5887"
+    },
+    "TSE:8316": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 3374,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "TSE:8316",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "銀行",
+      "id": "c8fabff60d3c741e863467c4"
+    },
+    "TSE:8411": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 8668,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "TSE:8411",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "銀行",
+      "id": "8789a97b6b6adbcf30af39d4"
+    },
+    "TSE:9348": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 403,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "TSE:9348",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "宇宙",
+      "id": "bbb7176eb3f5f2f469563a3e"
+    },
+    "TSE:9502": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 2626.5,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "TSE:9502",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "電力・ユーティリティ",
+      "id": "c0ea67bda47a2bcdf7f3a65f"
+    },
+    "TSE:9503": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 2606,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "TSE:9503",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "電力・ユーティリティ",
+      "id": "0223ce606603fd6fc18aa784"
+    },
+    "TSE:9984": {
+      "analysisDate": "2026-10-08",
+      "marketDataAsOf": "2026-10-05",
+      "generatedAt": "2026-10-07T18:27:36Z",
+      "mode": "live",
+      "evaluationVersion": "1.0.0-technical-analysis-history",
+      "technicalVersion": "3.0.0-observed-technicals",
+      "analysisKind": "TECHNICAL_MODEL",
+      "status": "REVIEW_REQUIRED",
+      "stage": "要確認",
+      "setup": "UNASSESSED",
+      "setup_type": null,
+      "setupConfirmed": false,
+      "setupTypeSource": null,
+      "lifecycle": "UNASSESSED",
+      "lifecycleConfirmed": false,
+      "lifecycleSource": null,
+      "lifecycleCandidate": null,
+      "readiness": null,
+      "price": 6497,
+      "pivot": {
+        "value": null,
+        "label": "未確認Pivot候補"
+      },
+      "structuralStop": null,
+      "entry": null,
+      "riskPct": null,
+      "distanceToPivotPct": null,
+      "entryReadiness": null,
+      "dataQuality": {
+        "status": "OLDER_INPUT",
+        "manualChartReview": false
+      },
+      "summary": "2026-10-05までの保存済み技術データを用いた監視メモ。チャート型の自動確定はしません。",
+      "idealPath": [
+        "チャート型・現在状態・Pivotを確認"
+      ],
+      "confirmation": [
+        "直近の確定足で構造と出来高を再確認",
+        "Lifecycle別のPivot・Entry・構造的Stopをチャート確認"
+      ],
+      "invalidation": [
+        "確認した支持帯の崩れ、またはブレイク仮説の無効化で再評価"
+      ],
+      "action": {
+        "code": "REVIEW_REQUIRED",
+        "label": "データ更新・チャート確認",
+        "detail": "チャート型・現在状態・Pivotを確認"
+      },
+      "setupJourney": {
+        "schemaVersion": 1,
+        "modelVersion": "1.0.0",
+        "asOf": "2026-10-08",
+        "symbol": "TSE:9984",
+        "phase": "UNASSESSED",
+        "episodeId": null,
+        "previousEpisodeId": null,
+        "reviewedAsOf": null,
+        "marketDataAsOf": "2026-10-05",
+        "marketDataCurrent": false,
+        "preSetup": null,
+        "originPivot": null,
+        "promotion": {
+          "requirements": {
+            "chartTypeConfirmed": false,
+            "patternReviewed": false,
+            "originPivotConfirmed": false,
+            "structuralStopReviewed": false,
+            "preBreakoutStateConfirmed": false
+          },
+          "reviewComplete": false,
+          "automaticPromotion": false
+        },
+        "lifecycle": {
+          "value": "UNASSESSED",
+          "confirmed": false,
+          "candidate": null,
+          "candidateReasons": [],
+          "reviewRequired": false
+        },
+        "entryPlan": {
+          "lifecycle": "UNASSESSED",
+          "status": "REVIEW_REQUIRED",
+          "alternatives": [],
+          "nextCheck": "チャート型・現在状態・Pivotを確認"
+        }
+      },
+      "changeReason": "分析履歴基盤の初回生成。保存済みObservedを使用、未取得は未分析と記録",
+      "source": {
+        "label": "保存済みObserved技術評価 / dated Setup Registry",
+        "snapshotPath": "live/daily/2026-10-05.json",
+        "snapshotGeneratedAt": "2026-10-06T05:07:15.642Z",
+        "registryAsOf": "2026-10-07",
+        "preSetupAsOf": null
+      },
+      "theme": "AI・テック",
+      "id": "90d18c2c7dedc0c7db27f936"
+    }
+  }
+}

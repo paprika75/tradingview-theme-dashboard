@@ -24,3 +24,4 @@ jobs:
           python tests/test_setup_lifecycle.py
           python tests/test_live_setup_state.py
           python tests/test_setup_journey.py
+          python tests/test_research_workflow.py

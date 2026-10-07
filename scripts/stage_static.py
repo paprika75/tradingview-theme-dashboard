@@ -14,7 +14,7 @@ def version_imports(path):
   return prefix+relative+'?v='+digest(target)+suffix
  path.write_text(re.sub(r"(from\s+['\"])(\./[^'\"]+)(['\"])",replace,path.read_text()))
 # Logic has no imports. Readers/views import logic, then app imports those modules.
-for name in ['lib/data.mjs','lib/views.mjs','setup-lifecycle-ui.js','app.js']:version_imports(public/name)
+for name in ['lib/data.mjs','lib/views.mjs','setup-lifecycle-ui.js','stock-analysis.js','app.js']:version_imports(public/name)
 for name in ['index.html','us.html','japan.html','theme.html','history.html','about.html']:
  p=public/name
  text=p.read_text().replace('src="app.js"',f'src="app.js?v={digest(public/"app.js")}"').replace('href="styles.css"',f'href="styles.css?v={digest(public/"styles.css")}"')

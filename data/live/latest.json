@@ -53,5 +53,17 @@
       "path": "live/market-exposure/1.0.0-index-exposure/2026-10-05.json",
       "evaluationVersion": "1.0.0-index-exposure"
     }
+  ],
+  "marketAction": [
+    {
+      "asOf": "2026-10-02",
+      "path": "live/market-action/1.0.0-market-action/2026-10-02.json",
+      "evaluationVersion": "1.0.0-market-action"
+    },
+    {
+      "asOf": "2026-10-05",
+      "path": "live/market-action/1.0.0-market-action/2026-10-05.json",
+      "evaluationVersion": "1.0.0-market-action"
+    }
   ]
 }

@@ -218,3 +218,12 @@ GitHub Pages上で以下を確認。
 1280px / 1440pxでpage全体・主要grid・cardに意図しない横はみ出しなし。多列tableはpanel内scroll。
 
 CSSとES modules dependencyをcontent hashでversioningし、cache混在を抑制。過去評価は保存済みsetting versionを利用し、現在設定で再計算しない。
+
+
+## 2026-10-08 — Research workflow / market action
+
+- 確認パッチを日付付きRegistryへ保存するCLIと、構造窓からのPivot/Stop候補算出。
+- 研究評価日・生成時刻・市場データ日を分離し、過去表示への未来分析混入を修正。最新分析と現在Universeは明示切替。
+- 公開研究対象791銘柄、保存済み技術データ212銘柄の初回メモ。未取得579銘柄は未分析。Legacy VSTログを保持。
+- Market Outlookの行動条件を技術候補と別表示し、3本柱・各セクションへ共通接続。市場・Theme・参考投資比率の計算閾値は維持。
+- TradingView OHLCVの接続エラーで新規Pre-Setup実抽出・実チャート確認・アラート同期は未完。

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "live",
+  "asOf": "2026-10-05",
+  "evaluationVersion": "1.0.0-market-action",
+  "outlookVersion": "1.0.0-index-outlook",
+  "exposureVersion": "1.0.0-index-exposure",
+  "sourcePaths": {
+    "outlook": "live/market-outlook/1.0.0-index-outlook/2026-10-05.json",
+    "exposure": "live/market-exposure/1.0.0-index-exposure/2026-10-05.json"
+  },
+  "provenance": "Deterministic replay of saved index evaluation; not a contemporaneously published entry permission",
+  "markets": {
+    "US": {
+      "state": "UPTREND_UNDER_PRESSURE",
+      "code": "LIMIT",
+      "label": "新規Entryは慎重に確認",
+      "condition": "候補を絞り、支持・出来高・Stop・参考投資比率を確認",
+      "reasons": [],
+      "range": [
+        20,
+        40
+      ],
+      "automaticBuy": false
+    },
+    "JP": {
+      "state": "UNASSESSED",
+      "code": "VERIFY",
+      "label": "市場判定は未完",
+      "condition": "出来高・FTD等を確認できるまで、価格上昇だけで新規Entry可と扱わない",
+      "reasons": [],
+      "range": null,
+      "automaticBuy": false
+    }
+  }
+}

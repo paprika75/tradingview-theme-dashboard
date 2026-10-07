@@ -386,7 +386,7 @@ python scripts/build_pre_setup.py --input observations/YYYY-MM-DD/ohlcv.json --u
 python tests/test_pre_setup.py
 ```
 
-評価結果を `data/pre-setup/<rule version>/<asOf>.json` に追記し、`data/pre-setup/latest.json` に登録する。過去の異内容上書きは拒否する。現時点では、全一次銘柄の確定足収集・定期実行・この新しい評価の画面接続は未実装。既存テーマ由来のSetup候補を、この一次リスト評価として表示しない。
+評価結果を `data/pre-setup/<rule version>/<asOf>.json` に追記し、`data/pre-setup/latest.json` に登録する。過去の異内容上書きは拒否する。画面の保存評価読み取りは接続済み。全一次銘柄の確定足収集・定期実行は未完。既存テーマ由来のSetup候補を、この一次リスト評価として表示しない。
 
 ## 10. Lifecycle表示の判定と欠損
 
@@ -403,3 +403,6 @@ Registryなしの自動判定は `lifecycle` に保存される場合もある�
 Entry / Stop / RiskはLifecycle・episode・Pivotに対応する確認案だけを採用。元Setupのq.entry/q.stopは参考水準として残し、継続型へ流用しない。FAILED_BREAKOUT後やブレイク後の新Baseは新episodeで再評価する。
 
 一次リスト評価のDashboard読み取りは接続済みだが、全一次銘柄の実データ収集と正式確認Registry作成は未完。既存snapshotは改変せず、新しいbuildだけにモデルを保存する。
+
+
+日付付きRegistry保存、構造窓による水準候補、分析履歴と市場行動条件の実装は [RESEARCH_WORKFLOW.md](RESEARCH_WORKFLOW.md) を参照。実銘柄の全OHLCV取得と手動チャート確認は引き続き必要。

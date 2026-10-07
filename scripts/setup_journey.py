@@ -148,7 +148,9 @@ def validate_review_transition(previous, proposed, asof):
         raise ValueError('Dated episode and confirmed origin Pivot are required')
     if (proposed.get('setupConfirmed') is not True or proposed.get('lifecycleConfirmed') is not True
             or proposed.get('lifecycle') not in ENTRY_KINDS or not proposed.get('lifecycleSource')
-            or not proposed.get('setupTypeSource')):
+            or not proposed.get('setupTypeSource')
+            or proposed.get('lifecycleSource') == 'RULE_CANDIDATE'
+            or proposed.get('setupTypeSource') == 'RULE_CANDIDATE'):
         raise ValueError('An explicit chart review must confirm both axes and retain sources')
     before = (previous or {}).get('setupReview') or {}
     if before.get('episodeId') == review['episodeId']:

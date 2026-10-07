@@ -161,6 +161,8 @@ Pivot突破後は元の `setup_type` を変えず、`lifecycle` のみを `BREAK
 
 ### P0 — まず完成させる
 
+- [#9 Lifecycle誤判定・Entry候補フィルタ修正](https://github.com/paprika75/tradingview-theme-dashboard/issues/9) — 共通判定・回帰テストを実装
+
 - [#1 Watchlist起点のPre-Setup抽出ロジック](https://github.com/paprika75/tradingview-theme-dashboard/issues/1)
 - [#2 Pre-Setupから正式Setupへの判定・昇格フロー](https://github.com/paprika75/tradingview-theme-dashboard/issues/2)
 - [#3 Pivot REVIEWアラートのライフサイクル管理](https://github.com/paprika75/tradingview-theme-dashboard/issues/3)
@@ -172,11 +174,18 @@ Pivot突破後は元の `setup_type` を変えず、`lifecycle` のみを `BREAK
 - [#6 DashboardにPre-Setup / Setup / Post-Breakout Lifecycleを統合](https://github.com/paprika75/tradingview-theme-dashboard/issues/6)
 - [#7 日本市場Market Outlookの出来高データ源を決定](https://github.com/paprika75/tradingview-theme-dashboard/issues/7)
 
+- [#10 全監視銘柄の分析履歴・評価日時に応じた表示](https://github.com/paprika75/tradingview-theme-dashboard/issues/10)
+- [#11 Market Outlookと新規候補の判断フローを接続](https://github.com/paprika75/tradingview-theme-dashboard/issues/11)
+
 ### P2 — 精度向上
 
 - [#8 EPS・売上成長を補助スコアとして追加](https://github.com/paprika75/tradingview-theme-dashboard/issues/8)
 
 ---
+
+- [#12 出典付き材料・テーマ翻訳・新テーマ発見](https://github.com/paprika75/tradingview-theme-dashboard/issues/12)
+
+次の実装順: #9表示修正 → #1一次リストの確定足収集・抽出結果の確認 → #2正式Setup確認と#6画面/状態保存 → #3アラート管理。
 
 ## 現在できていること
 
@@ -190,7 +199,8 @@ Pivot突破後は元の `setup_type` を変えず、`lifecycle` のみを `BREAK
 - Theme Landscape / Opportunity / Active Health
 - Theme Leaders
 - Setup候補表示
-- Setup Type / Lifecycleの分離表示とLifecycleフィルタ
+- Setup Type / Lifecycle / Entry判定・形成度の分離表示と併用フィルタ
+- 一次Watchlist用Pre-Setup抽出CLI・日付付き状態保存（実データ収集・画面接続は継続中）
 - TradingView OHLCVを使うObserved評価
 - TradingView Watchlistの読み書き
 - TradingView価格アラート作成
@@ -231,6 +241,7 @@ lib/views.mjs             shared rendering
 config/scoring.json       current weights / thresholds
 config/market-outlook.json
 config/market-exposure.json
+config/pre-setup.json      versioned primary-watchlist candidate rules
 config/versions/          immutable historical rule versions
 data/                     generated / archived evaluation data
 observations/              captured TradingView observations
@@ -258,6 +269,9 @@ ES modulesとJSON fetchを使用するため、HTMLを直接開かずHTTP経由�
 node --test tests/*.test.mjs
 python tests/test_live.py
 python tests/validate_data.py
+python tests/test_market_outlook.py
+python tests/test_market_exposure.py
+python tests/test_pre_setup.py
 ```
 
 ---

@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0-pre-setup",
+  "minimumBars": 65,
+  "pivotSessions": 20,
+  "pivotTouchTolerancePct": 0.75,
+  "minimumPivotTouches": 2,
+  "rangeContractionRatio": 0.85,
+  "atrContractionRatio": 0.9,
+  "volumeDryUpRatio": 0.8,
+  "minimumContractionChecks": 2,
+  "readyDistancePct": 3,
+  "nearDistancePct": 7,
+  "maximumDistancePct": 15,
+  "entryBufferPct": 0.1,
+  "note": "一次Watchlistからの定量候補抽出。VCP/CWHの確定判定や正式Setupへの昇格は手動チャート確認。閾値は独自の初期設定。"
+}

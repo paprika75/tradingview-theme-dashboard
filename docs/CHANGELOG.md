@@ -2,6 +2,19 @@
 
 実装・検証・仕様変更の履歴を時系列で記録する。
 
+## 2026-10-07 — Lifecycle誤判定修正 / Pre-Setup抽出基盤
+
+- Entry未突破をBREAKOUTとする符号判定を廃止。共通のデータ判定へ移行。
+- DOM数値の「—」を0へ変換する処理を廃止。旧Pullback/Retestの曖昧な状態は未判定。
+- Entry候補フィルタの強制解除を廃止し、Lifecycleフィルタとの併用とURL保存を追加。
+- Setup Type / Lifecycle / Entry判定・形成度を分離し、推定と保存状態を明示。
+- 分析ダイアログのFORMING等の元ステータスを保持。
+- 公開ファイル生成にLifecycle moduleと依存関係のcontent hashを追加。
+- 一次Watchlist専用のPre-Setup抽出CLIと独立設定1.0.0を追加。日付付きUniverse、収縮・Pivot・形成度、状態の追記保存、欠損/除外理由を扱う。
+- 既存テーマ・市場評価・参考投資比率・過去snapshotは変更しない。
+- 新しいPre-Setup評価の実データ収集・画面接続・正式Setup昇格は継続作業。
+- 回帰検証: Node34件 / Python43件。#9に不具合修正を分離し、#10〜#12へ不足作業を追加。
+
 ## 2026-10-07 — Setup Type / Post-Breakout Lifecycle分離
 
 Setupのチャート型とブレイク後の現在状態を別軸へ変更。

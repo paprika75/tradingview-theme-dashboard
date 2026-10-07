@@ -356,3 +356,40 @@ Cheat → Early → Standardで増し玉する場合は、勝ちポジション�
 - Pine Screenerは現行の標準運用には使用しない。
 - Pattern判定は完全自動検出ではなく、定量候補抽出 + チャート確認を基本とする。
 - 過去の保存データは遡及上書きせず、legacy `setup` しかないsnapshotはUI互換層で表示する。
+
+
+## 9. Pre-Setup抽出エンジン v1
+
+`config/pre-setup.json` / `scripts/build_pre_setup.py` を追加。一次リストの保存時点を評価日以前に限定し、未来の足・現在のUniverseを過去評価へ混ぜない。未取得銘柄も除外理由として保存し、取得済みだけを全母集団として扱わない。
+
+- 必要日足65本。未確定足は既存の市場別処理で除外。
+- Pivot候補は当日を除く20営業日高値。0.75%以内の接触が2回以上で抵抗帯の明確さを確認。
+- 直近10日/前10日の値幅比0.85以下、True Range平均比0.90以下、直近10日/前50日の出来高平均比0.80以下のうち2条件以上。
+- 終値が上向き50DMAより上、Pivotまで15%以内を候補条件とする。
+- 候補条件を満たした後に、距離3%以内Ready、3%超7%以内Near、7%超15%以内Forming。
+- 当日高値がPivot候補に到達・通過した場合はPre-Setupから除外して再確認。終値突破はBREAKOUT、日中のみ通過は状態未判定。
+- 長期Stage 2補助項目と高値・安値構造も保存する。欠損はnull。固定60日Base DepthはHard Filterにしない。
+- `setup_type`は未確定のためnull、正式確認はfalse。候補は`lifecycle=SETUP`とし、readinessを別に保存する。Entry/Stopはあくまで候補水準。
+
+これらは独自の初期閾値で、収益性や投資判断の有効性の検証ではない。VCP/CWH/正式Pivotの確定と昇格はチャート確認を必要とする。
+
+入力Universe形式:
+
+```json
+{"asOf":"YYYY-MM-DD","markets":{"US":{"name":"🇺🇸一次スクリーナー","symbols":["NASDAQ:...","NYSE:..."]},"JP":{"name":"🇯🇵一次スクリーナー","symbols":["TSE:..."]}}}
+```
+
+実行:
+
+```bash
+python scripts/build_pre_setup.py --input observations/YYYY-MM-DD/ohlcv.json --universe observations/YYYY-MM-DD/primary-universe.json --as-of YYYY-MM-DD
+python tests/test_pre_setup.py
+```
+
+評価結果を `data/pre-setup/<rule version>/<asOf>.json` に追記し、`data/pre-setup/latest.json` に登録する。過去の異内容上書きは拒否する。現時点では、全一次銘柄の確定足収集・定期実行・この新しい評価の画面接続は未実装。既存テーマ由来のSetup候補を、この一次リスト評価として表示しない。
+
+## 10. Lifecycle表示の判定と欠損
+
+共通判定は `lib/setup-state.mjs`。保存済みlifecycleを最優先し、未保存の場合のみ有効な価格・EntryからSETUP/BREAKOUT/EXTENDEDを推定する。価格がEntry未満ならSETUP。欠損や0を価格として扱わず未判定にする。旧Pullback/Retestの元型・元Pivotは推測で埋めない。
+
+OverviewはSetup Type、Lifecycle、Entry判定、形成度を分離し、保存状態/推定/未判定を明記する。Entry候補フィルタとLifecycleフィルタは併用でき、URLで保存する。分析ダイアログもFORMING等の元ステータスを残したままLifecycleを補足する。

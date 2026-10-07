@@ -72,3 +72,5 @@
 .health-table-scroll{max-height:470px}
 .health-table{min-width:1300px}
 .health-table th:first-child{position:sticky;left:0;z-index:5}
+
+.setup-source{display:block;font-size:9px;color:var(--muted);white-space:normal;max-width:130px;margin-top:5px;line-height:1.5}

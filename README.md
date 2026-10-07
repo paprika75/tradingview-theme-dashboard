@@ -121,6 +121,8 @@ REVIEW発火はBuyシグナルではない。発火後にSetup構造、出来高
 - 日付付きSetup registry
 - Observed snapshotへの `setup_type / lifecycle` 永続化
 - `lifecycleCandidate` 自動候補判定
+- Pre-Setup保存評価のDashboard読み取り（実データ収集は未完）
+- 昇格要件・Setup episode・Lifecycle別Entry Planの保存モデルと検証
 - TradingView Watchlistの読み書き
 - Pivot価格アラート
 - append-only snapshot / versioned rules
@@ -141,9 +143,9 @@ REVIEW発火はBuyシグナルではない。発火後にSetup構造、出来高
 
 ## 次の実装優先順位
 
-1. **#2** Pre-Setup → 正式Setupへの昇格フローを完成
-2. **#3** Pivot REVIEW alertの状態管理
-3. **#6** LifecycleごとのEntry / Stop / RiskとDashboard統合を仕上げる
+1. **#1 / #2 / #6** Pre-Setup実データ収集 → 正式Setup確認記録 → Dashboard表示
+2. **#6** LifecycleごとのEntry / Stop / Riskを確認・保存して表示
+3. **#3** Pivot REVIEW alertの状態管理
 4. **#5** Observed更新フローの定期運用化
 
 関連Issues: [#1](https://github.com/paprika75/tradingview-theme-dashboard/issues/1) / [#2](https://github.com/paprika75/tradingview-theme-dashboard/issues/2) / [#3](https://github.com/paprika75/tradingview-theme-dashboard/issues/3) / [#5](https://github.com/paprika75/tradingview-theme-dashboard/issues/5) / [#6](https://github.com/paprika75/tradingview-theme-dashboard/issues/6)
@@ -175,6 +177,7 @@ python tests/test_market_exposure.py
 python tests/test_pre_setup.py
 python tests/test_setup_lifecycle.py
 python tests/test_live_setup_state.py
+python tests/test_setup_journey.py
 ```
 
 Pages deploy前にも同じLifecycle回帰テストを実行する。
@@ -197,4 +200,5 @@ Pages deploy前にも同じLifecycle回帰テストを実行する。
 
 - [Workflow](docs/WORKFLOW.md)
 - [Setup State Model](docs/SETUP_STATE.md)
+- [Setup Journey / Entry Plan](docs/SETUP_JOURNEY.md)
 - [Changelog](docs/CHANGELOG.md)

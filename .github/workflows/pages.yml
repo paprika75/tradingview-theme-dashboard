@@ -31,6 +31,7 @@ jobs:
           python tests/test_pre_setup.py
           python tests/test_setup_lifecycle.py
           python tests/test_live_setup_state.py
+          python tests/test_setup_journey.py
       - uses: actions/configure-pages@v5
       - name: Stage static files
         run: python scripts/stage_static.py

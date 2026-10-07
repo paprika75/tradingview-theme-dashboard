@@ -2,6 +2,8 @@
 
 この文書は、Theme Atlasにおける個別銘柄のSetup TypeとLifecycleの保存・更新ルールを定義する。
 
+Pre-Setupからの昇格・Setup履歴・Lifecycle別Entry / Stop / Riskの追加モデルは [SETUP_JOURNEY.md](SETUP_JOURNEY.md) を参照。既存のType / Lifecycle / 候補の別軸化を維持する。
+
 ## 1. 基本原則
 
 チャート型と現在状態を別軸で扱う。

@@ -393,3 +393,13 @@ python tests/test_pre_setup.py
 共通判定は `lib/setup-state.mjs`。保存済みlifecycleを最優先し、未保存の場合のみ有効な価格・EntryからSETUP/BREAKOUT/EXTENDEDを推定する。価格がEntry未満ならSETUP。欠損や0を価格として扱わず未判定にする。旧Pullback/Retestの元型・元Pivotは推測で埋めない。
 
 OverviewはSetup Type、Lifecycle、Entry判定、形成度を分離し、保存状態/推定/未判定を明記する。Entry候補フィルタとLifecycleフィルタは併用でき、URLで保存する。分析ダイアログもFORMING等の元ステータスを残したままLifecycleを補足する。
+
+## 11. 昇格とLifecycle別水準モデル
+
+詳細は [Setup Journey / Entry Plan](SETUP_JOURNEY.md)。3.3では新規ObservedにPre-Setupの保存評価日・形成度・候補Pivot、確認したSetup episode、Lifecycle別Entry Planを追加する。
+
+Registryなしの自動判定は `lifecycle` に保存される場合もあるため、確定扱いには `lifecycleConfirmed` とsourceを必ず確認する。Ready・候補Lifecycle・REVIEW発火だけでは正式昇格やTradingView移動をしない。
+
+Entry / Stop / RiskはLifecycle・episode・Pivotに対応する確認案だけを採用。元Setupのq.entry/q.stopは参考水準として残し、継続型へ流用しない。FAILED_BREAKOUT後やブレイク後の新Baseは新episodeで再評価する。
+
+一次リスト評価のDashboard読み取りは接続済みだが、全一次銘柄の実データ収集と正式確認Registry作成は未完。既存snapshotは改変せず、新しいbuildだけにモデルを保存する。

@@ -74,3 +74,5 @@
 .health-table th:first-child{position:sticky;left:0;z-index:5}
 
 .setup-source{display:block;font-size:9px;color:var(--muted);white-space:normal;max-width:130px;margin-top:5px;line-height:1.5}
+
+.setup-journey{padding:24px;border-top:1px solid var(--line);}.setup-journey h3{font-size:18px;}.setup-journey h4{margin-top:24px;}.setup-journey p{color:var(--muted);line-height:1.7;}.journey-table{min-width:1150px;}.journey-table td{white-space:normal;min-width:130px;}.journey-table td:nth-child(5),.journey-table td:nth-child(6){min-width:240px;}.journey-table small,.journey-plan small{display:block;line-height:1.6;margin-top:5px;color:var(--muted);}.journey-plan+.journey-plan{margin-top:12px;}

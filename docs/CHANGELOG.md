@@ -1,5 +1,17 @@
 # Theme Atlas — Changelog
 
+## 2026-10-08 — Setup Journey / Lifecycle Entry Plan v1
+
+- main `be78585` / PR #13のSetup Registry基盤に追加。既存実装・過去snapshotを再作成しない。
+- Ready / Near / Forming、候補Pivot、Formal Setup / Post-Breakout / 再形成待ちの読み取りモデルと08 SETUPS内表示。
+- 型ごとの手動構造確認、Standard Pivot / Entry / 構造的Stopの昇格要件を定義。新Baseは新episodeで前履歴へリンク。
+- Lifecycle別Entry案をepisode・元Pivot・現在Pivot・確認日に紐付け。旧水準を流用しない。EXTENDEDは待機、FAILED_BREAKOUTは無効。
+- 自動候補と保存状態の不一致、未来の記録、未確認移行状態、欠損価格を扱い、Watchlistの自動移動を行わない。
+- 新規Observed入口の版を3.3へ更新。確認済み元Pivotがある場合のみ候補判定基準へ使う。市場・Theme重みと既存候補閾値は保持。
+- 一次リスト全銘柄の収集・実際のチャート確認記録、新規Observed生成、REVIEW alert同期は引き続き未完。
+- 検証: Node 37件、Python 68件（新Journey 17件含む）、計105件。既存snapshotへの差分なし。
+
+
 実装・検証・仕様変更の履歴を時系列で記録する。
 
 ## 2026-10-07 — Lifecycle誤判定修正 / Pre-Setup抽出基盤

@@ -111,7 +111,6 @@ def lifecycle_candidate(q, bars, registry_state, rules):
         lookback = bars[-20:]
         was_post_breakout = any(b['h'] >= entry for b in lookback)
 
-    reasons = []
     if not finite(price) or price <= 0:
         return 'UNASSESSED', ['価格データ不足']
 
@@ -125,15 +124,7 @@ def lifecycle_candidate(q, bars, registry_state, rules):
         if recent and all(b['c'] < ma50 for b in recent) and slope50 < 0:
             return 'FAILED_BREAKOUT', ['Pivot水準未保存だが、3日連続50DMA下・50DMA下向き']
 
-    if was_post_breakout and _three_weeks_tight(bars, rules.get('threeWeeksTightClosePct', 1.5)):
-        return '3WT', ['直近3完了週の終値変化がThree Weeks Tight候補閾値内']
-
-    if was_post_breakout and _ascending_base_candidate(q, bars, rules):
-        return 'ASCENDING_BASE', ['直近3ブロックの安値切り上げ・高値圏維持']
-
-    if was_post_breakout and _tight_range(bars, int(rules.get('tightSessions', 5)), rules.get('tightRangePct', 5)):
-        return 'TIGHT', ['直近の値幅がTight候補閾値内']
-
+    # Actionable support tests take priority over broader continuation patterns.
     if was_post_breakout and finite(entry) and entry > 0:
         distance = pct_change(price, entry)
         if finite(distance) and abs(distance) <= rules.get('retestPct', 3):
@@ -146,6 +137,15 @@ def lifecycle_candidate(q, bars, registry_state, rules):
                 and price > ma50
                 and (not finite(rvol) or rvol <= rules.get('pullbackMaxRvol', 1.2))):
             return 'PULLBACK', ['21EMA近辺・50DMA上・出来高過熱なし']
+
+    if was_post_breakout and _three_weeks_tight(bars, rules.get('threeWeeksTightClosePct', 1.5)):
+        return '3WT', ['直近3完了週の終値変化がThree Weeks Tight候補閾値内']
+
+    if was_post_breakout and _ascending_base_candidate(q, bars, rules):
+        return 'ASCENDING_BASE', ['直近3ブロックの安値切り上げ・高値圏維持']
+
+    if was_post_breakout and _tight_range(bars, int(rules.get('tightSessions', 5)), rules.get('tightRangePct', 5)):
+        return 'TIGHT', ['直近の値幅がTight候補閾値内']
 
     if finite(entry) and entry > 0:
         distance = pct_change(price, entry)

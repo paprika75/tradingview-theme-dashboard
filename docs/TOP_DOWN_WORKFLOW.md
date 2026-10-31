@@ -161,13 +161,21 @@ US / Japan OverviewのMarket Outlookより前に `00 TOP-DOWN DECISION PATH` を
 - 欠損値を0点や推測値で補完しない
 - Market stateとTheme/Stock technical scoreを一つの点数へ混ぜない
 
-## 現在の未接続
+## 現在の未接続・整合課題
 
-- Industry / Peer Groupの正式データ源
-- 本番UniverseのRS Rank proxy
-- 全一次Universeの最新OHLCV安定取得
-- EPS / Revenue等のFundamental補助評価
-- Pivot REVIEW alert同期
-- 新テーマ発見・出典付きInstitutional Focus
+作業一覧は [ISSUE_PLAN.md](ISSUE_PLAN.md) を参照。
+
+- #6: 現在のLeader集計はTheme Top3かつStage2、shortlistは候補ThemeのSetupという別集合。段階間の絞り込み・件数の意味を整合する
+- #6: 現Top-Downの技術候補q.entry/q.stopと、既存Setup Journeyの確認済みLifecycle Entry Planを区別して接続する
+- #16: 取得失敗時のobserver再試行ループを抑止する（PR #15の未対応review指摘）
+
+## 担当Issue
+
+- #14: Industry / Peer Groupの分類契約・時点保存・UI接続（Peer順位は #17 に分割）
+- #4: 本番UniverseのRS Rank proxy
+- #5: 全対象のdated入力と更新・分析coverage、#1: 実Pre-Setup/流動性検証
+- #8: EPS / Revenue等のFundamental補助評価
+- #3: Pivot REVIEW alertモデル/同期
+- #12: 新テーマ発見・出典付きInstitutional Focus
 
 これらを接続しても、Top-Downのレイヤー順序とpoint-in-time原則は維持する。

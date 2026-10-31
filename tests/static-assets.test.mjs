@@ -17,6 +17,7 @@ test('Pages staging includes every entry module and hashes nested dependencies',
  for(const name of ['us.html','japan.html','theme.html']){
   const page=new URL('public/'+name,root),html=await readFile(page,'utf8');
   assert.ok(html.includes('setup-lifecycle-ui.js?v='));
+  if(name!=='theme.html')assert.ok(html.includes('top-down-ui.js?v='));
   for(const m of html.matchAll(/<script type="module" src="([^"]+)"/g))await check(new URL(m[1],page));
  }
 });

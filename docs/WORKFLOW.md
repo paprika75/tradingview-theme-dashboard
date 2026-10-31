@@ -5,28 +5,13 @@
 ## 1. 全体の判断フロー
 
 ```text
-Market Outlook
-  ↓
-Distribution Days / FTD
-  ↓
-Momentum Health
-  ↓
-Institutional Focus
-  ↓
-Theme Translation
-  ↓
-New Entry Opportunities / Active Theme Health
-  ↓
-Theme Landscape
-  ↓
-Theme Leaders
-  ↓
-Pre-Setup / Setups
-  ↓
-Post-Breakout Lifecycle
-  ↓
-Theme Rotation
+Market → Theme → Industry / Peer Group → Stock Leader → Setup → Pivot / Entry
 ```
+
+PR #15でTop-Down初期導線を統合済み。Industry / Peerは未接続（#14）。
+詳細は [TOP_DOWN_WORKFLOW.md](TOP_DOWN_WORKFLOW.md)、作業の担当範囲・依存関係は [ISSUE_PLAN.md](ISSUE_PLAN.md)。
+Distribution Days/FTDはMarket、Momentum Healthは監視群の補助指標として使い、Institutional Focus/Theme Translationや既存詳細セクションは根拠確認用に残す。
+Market stateは技術候補を消さず、Entryへの行動制約として表示する。
 
 市場環境と個別銘柄評価は分離する。
 
@@ -277,7 +262,7 @@ REVIEW | TICKER | Pivot PRICE
 
 条件を満たした場合のみ正式Setup / Entry候補として扱う。
 
-Pivotがベース再形成で変化した場合、古いアラートは削除して新しいPivotで再作成する。
+Pivotがベース再形成で変化した場合、旧alertをobsoleteとして無効化し停止する。発火履歴を保持して新Pivotとの対応を追跡する設計・同期は #3 で実装する。Dashboardにこの同期基盤が完成済みという意味ではない。
 
 ---
 
@@ -305,7 +290,7 @@ RS_score = 0.4 × R_3M
          + 0.2 × R_12M
 ```
 
-各Rは株価リターン − benchmarkリターンを基本とし、対象Universe内でpercentile化する。
+本番仕様の候補では各Rを株価リターン − benchmarkリターンとする。一方、現行codeは株価変化倍率 ÷ benchmark変化倍率 − 1であり一致していない。現rsLine fieldも上記RS Lineではなく63日指数比リターン、JP長期RSは日経225基準。採用式・field名・TOPIX方針との整合を #4 で新しい版として解消する。現snapshotのRSは監視Universe内proxyで、全市場順位ではない。
 
 これはIBD RS Ratingそのものではないため、名称は **RS Rank** とする。
 

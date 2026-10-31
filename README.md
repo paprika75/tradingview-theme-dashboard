@@ -1,6 +1,6 @@
 # Theme Atlas — TradingViewテーマ分析ダッシュボード
 
-TradingViewの市場・テーマ・個別銘柄データを整理し、**市場環境 → テーマ → Leader → Pre-Setup / Setup → Post-Breakout** の順で投資候補を確認する開発中ダッシュボード。
+TradingViewの市場・テーマ・個別銘柄データを整理し、**Market → Theme → Industry / Peer Group → Stock Leader → Setup → Pivot / Entry** の順で投資候補を確認する開発中ダッシュボード。
 
 公開URL: https://paprika75.github.io/tradingview-theme-dashboard/
 
@@ -10,17 +10,14 @@ TradingViewの市場・テーマ・個別銘柄データを整理し、**市場�
 
 ## 現在の判断フロー
 
+関連仕様: [Top-Down Workflow](docs/TOP_DOWN_WORKFLOW.md)。PR #15で初期導線をmainへ統合済み。
+
 ```text
-Market Outlook
-→ Distribution Days / FTD
-→ Momentum Health
-→ Institutional Focus / Theme Translation
-→ Theme Landscape / Theme Leaders
-→ Pre-Setup
-→ Formal Setup
-→ Post-Breakout Lifecycle
-→ Theme Rotation
+Market → Theme → Industry / Peer Group → Stock Leader → Setup → Pivot / Entry
 ```
+
+Industry / Peerは未接続（#14）。Market stateは技術候補を消さず、Entryの行動制約として扱う。
+既存の詳細セクション・3本柱は根拠確認用として維持する。
 
 市場全体の判定と監視銘柄群の強さは分離する。
 
@@ -123,8 +120,10 @@ REVIEW発火はBuyシグナルではない。発火後にSetup構造、出来高
 - `lifecycleCandidate` 自動候補判定
 - Pre-Setup保存評価のDashboard読み取り（実データ収集は未完）
 - 昇格要件・Setup episode・Lifecycle別Entry Planの保存モデルと検証
-- TradingView Watchlistの読み書き
-- Pivot価格アラート
+- 確認Registry保存CLI・Lifecycle別Entry Planモデル
+- 銘柄分析の不変ログ・時点別表示・明示的な最新分析切替（#10完了）
+- Top-Downの初期導線（PR #15）。候補集合・確認済み水準の整合は#6
+- TradingView Watchlistの読み書き・単純価格アラートの操作実績（Dashboard同期は#3未完）
 - append-only snapshot / versioned rules
 
 ---
@@ -143,12 +142,16 @@ REVIEW発火はBuyシグナルではない。発火後にSetup構造、出来高
 
 ## 次の実装優先順位
 
-1. **#1 / #2 / #6** Pre-Setup実データ収集 → 正式Setup確認記録 → Dashboard表示
-2. **#6** LifecycleごとのEntry / Stop / Riskを確認・保存して表示
-3. **#3** Pivot REVIEW alertの状態管理
-4. **#5** Observed更新フローの定期運用化
+1. **[#16](https://github.com/paprika75/tradingview-theme-dashboard/issues/16)** Top-Down取得失敗時の再試行ループ修正（小さな独立修正）
+2. **[#6](https://github.com/paprika75/tradingview-theme-dashboard/issues/6) / P0** Leaderから確認済みLifecycle Entry Planへの表示整合
+3. **[#5](https://github.com/paprika75/tradingview-theme-dashboard/issues/5) / P0** dated入力・更新・未分析coverageの運用統合
+4. **[#14](https://github.com/paprika75/tradingview-theme-dashboard/issues/14) / P1** Industry / Peerの分類契約・時点保存・接続
+5. **[#1](https://github.com/paprika75/tradingview-theme-dashboard/issues/1) / P1** 実Pre-Setup検証・市場別流動性
 
-関連Issues: [#1](https://github.com/paprika75/tradingview-theme-dashboard/issues/1) / [#2](https://github.com/paprika75/tradingview-theme-dashboard/issues/2) / [#3](https://github.com/paprika75/tradingview-theme-dashboard/issues/3) / [#5](https://github.com/paprika75/tradingview-theme-dashboard/issues/5) / [#6](https://github.com/paprika75/tradingview-theme-dashboard/issues/6)
+全Issue・依存関係・完了済み基盤は [Issue Plan](docs/ISSUE_PLAN.md) を参照。
+#2は実チャート確認、#3はREVIEW同期、#4は本番RS、#7はJP出来高。
+Peer内比較は#14から#17へ分割。#10の履歴基盤は完了し、残る収集/分析生成は#5へ集約。
+非公開化・Vercel移行は保留。公開設定は今回変更しない。
 
 ---
 
@@ -199,6 +202,8 @@ Pages deploy前にも同じLifecycle回帰テストを実行する。
 ## Documents
 
 - [Workflow](docs/WORKFLOW.md)
+- [Top-Down Workflow](docs/TOP_DOWN_WORKFLOW.md)
+- [Issue Plan](docs/ISSUE_PLAN.md)
 - [Setup State Model](docs/SETUP_STATE.md)
 - [Setup Journey / Entry Plan](docs/SETUP_JOURNEY.md)
 - [Changelog](docs/CHANGELOG.md)

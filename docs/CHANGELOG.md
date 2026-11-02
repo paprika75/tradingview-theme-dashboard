@@ -1,5 +1,13 @@
 # Theme Atlas — Changelog
 
+## 2026-11-02 — Top-Down読み込み失敗時の再試行抑止（#16）
+
+- 成功・失敗表示に要求contextを保持し、MutationObserver由来の再試行ループを防止。
+- 同一contextの読み込み中要求を重ねず、市場・日付変更で再取得。古い応答は新しい表示を上書きしない。
+- 未指定/無効日付のfallbackも同じ要求として扱い、既存Overviewの取り外し時は古い要求を無効化。
+- US/JPの失敗継続・context切替・要求競合を9件の回帰テストで検証。修正前mainでは6件失敗することを確認。
+- 市場・Theme・Lifecycle評価、Entry水準、過去snapshotは変更しない。
+
 ## 2026-10-08 — Setup Journey / Lifecycle Entry Plan v1
 
 - main `be78585` / PR #13のSetup Registry基盤に追加。既存実装・過去snapshotを再作成しない。

@@ -26,7 +26,7 @@ function stageCard(index,title,value,detail,tone='neutral'){
  return `<article class="outlook-index"><div class="outlook-title"><h3>${esc(index)} · ${esc(title)}</h3>${badge(value,tone)}</div><p>${esc(detail)}</p></article>`;
 }
 
-function renderTopDown(ctx,state){
+function renderTopDown(ctx,state,signature){
  const d=topDownDecision(ctx);
  const action=d.action;
  const stageHTML=[
@@ -43,7 +43,7 @@ function renderTopDown(ctx,state){
   return `<tr><td class="sticky-theme">${themeLink(state,r.theme)}</td><td>${esc(r.peerGroup??'—')}</td><td>${chartLink(r.stock)}</td><td>${badge(r.technical.label,r.technical.eligible?'positive':r.technical.extended?'warning':'neutral')}</td><td>${fmt(r.stock.scores.leader)}</td><td>${badge(q.stage,q.stage==='Stage 2'?'positive':'neutral')}</td><td>${esc(setupType(r))}</td><td>${badge(r.state.lifecycle==='UNASSESSED'?'未判定':r.state.lifecycle,lifecycleTone(r.state.lifecycle))}</td><td>${fmt(q.pivot,2)}</td><td>${fmt(q.entry,2)}</td><td>${fmt(q.stop,2)}</td><td>${fmt(risk)}</td><td>${badge(r.eligible?'CANDIDATE':r.extended?'EXTENDED':'WATCH',r.eligible?'positive':r.extended?'warning':'neutral')}</td></tr>`;
  }).join('');
  const exposure=action.range?`${action.range[0]}–${action.range[1]}%`:'未判定';
- return `<section class="panel" id="top-down-path" data-top-down-signature="${esc([state.mode,state.market,state.period,state.key,ctx.entry.asOf].join('|'))}">
+ return `<section class="panel" id="top-down-path" data-top-down-signature="${esc(signature)}">
   <div class="section-head"><div><span class="section-index">00</span><h2>TOP-DOWN DECISION PATH</h2><p>Market → Theme → Industry / Peer → Stock Leader → Setup → Pivot / Entry。上位レイヤーで候補を絞り、下位レイヤーで実行条件を確認する。</p></div>${badge(action.label,actionTone(action.code))}</div>
   <div class="outlook-overview"><div><span class="eyebrow">MARKET GATE / ${esc(ctx.entry.asOf)}</span><h3>${esc(action.label)}</h3><p>${esc(action.condition)}</p><small>技術候補のランキングは市場判定で消さず、実行可否だけをMarket Gateで制約します。自動Buyは行いません。</small></div><aside><span>参考投資比率</span><strong>${esc(exposure)}</strong><small>${esc(action.state)}</small></aside></div>
   <div class="outlook-index-grid">${stageHTML}</div>
@@ -54,29 +54,37 @@ function renderTopDown(ctx,state){
 }
 
 let renderToken=0;
+let pendingSignature=null;
 async function mount(){
  const target=document.querySelector('#market-health');
- if(!target)return;
+ if(!target){
+  ++renderToken;
+  pendingSignature=null;
+  return;
+ }
  const state=marketState();
  const workspace=document.querySelector('.workspace');
  const visibleAsOf=workspace?.dataset.analysisAsOf??'';
  const signature=[state.mode,state.market,state.period,state.key||'',visibleAsOf].join('|');
  const existing=document.querySelector('#top-down-path');
- if(existing?.dataset.topDownSignature===signature)return;
+ if(existing?.dataset.topDownSignature===signature||pendingSignature===signature)return;
  existing?.remove();
  const token=++renderToken;
+ pendingSignature=signature;
  try{
   const repo=new DataRepository();
   await repo.load(state.mode);
   if(!state.key||!repo.manifest[state.period].some(e=>e.key===state.key))state.key=repo.manifest[state.period].at(-1).key;
   const ctx=await repo.context(state.period,state.key,state.market);
   if(token!==renderToken||!document.querySelector('#market-health'))return;
-  document.querySelector('#market-health').insertAdjacentHTML('beforebegin',renderTopDown(ctx,state));
+  document.querySelector('#market-health').insertAdjacentHTML('beforebegin',renderTopDown(ctx,state,signature));
   const nav=document.querySelector('.section-nav');
   if(nav&&!nav.querySelector('a[href="#top-down-path"]'))nav.insertAdjacentHTML('afterbegin','<a href="#top-down-path"><small>00</small>Top-Down</a>');
  }catch(error){
   if(token!==renderToken||!document.querySelector('#market-health'))return;
-  document.querySelector('#market-health').insertAdjacentHTML('beforebegin',`<section class="panel" id="top-down-path"><div class="padded"><h2>TOP-DOWN DECISION PATH</h2><p class="load-warning">Top-Down表示を生成できません: ${esc(error.message)}</p></div></section>`);
+  document.querySelector('#market-health').insertAdjacentHTML('beforebegin',`<section class="panel" id="top-down-path" data-top-down-signature="${esc(signature)}"><div class="padded"><h2>TOP-DOWN DECISION PATH</h2><p class="load-warning">Top-Down表示を生成できません: ${esc(error.message)}</p></div></section>`);
+ }finally{
+  if(token===renderToken)pendingSignature=null;
  }
 }
 

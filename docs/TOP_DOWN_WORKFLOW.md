@@ -139,6 +139,15 @@ REVIEW alertの作成・発火・再設定は別Issueで管理し、Top-Down表�
 
 ## UI
 
+### 読み込み失敗と再取得
+
+同じ市場・mode・period・URL日付・画面評価日の組み合わせでは、読み込み中の要求を重ねない。
+成功・失敗の両表示に同じ要求contextを記録し、失敗表示自身のDOM変更で再試行しない。
+URL日付が未指定・無効で最新保存日へfallbackした場合も、要求contextを保持する。
+再取得は市場・日付等のcontext変更またはページ再読み込み時に行う。
+古い要求の成功・失敗は新しいcontextの表示を上書きしない。
+既存Overviewが一時的に外れた場合も古い要求を無効化する。
+
 US / Japan OverviewのMarket Outlookより前に `00 TOP-DOWN DECISION PATH` を追加する。
 
 表示内容:
